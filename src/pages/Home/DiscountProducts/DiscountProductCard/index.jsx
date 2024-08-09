@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
-import { PrimaryButton } from '../../../../components/Buttons';
-import { animateOnIntersection } from '../../../../utils/animations';
+import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { PrimaryButton } from "../../../../components/Buttons";
+import { animateOnIntersection } from "../../../../utils/animations";
 
 function DiscountProductCard({
   title,
@@ -32,7 +32,7 @@ function DiscountProductCard({
     <div
       ref={cardRef}
       className={`relative overflow-hidden ${className} promotions-container`}
-      style={{ visibility: 'hidden' }}
+      style={{ visibility: "hidden" }}
     >
       <img src={image} alt={alt} className="object-cover w-full h-full" />
       <div className={`absolute ${position} p-10 md:p-10 text-gray-900`}>

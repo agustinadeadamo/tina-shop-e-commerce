@@ -1,0 +1,51 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "jsx-a11y", "import", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "react/jsx-props-no-spreading": "off",
+    "react/forbid-prop-types": ["off"],
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/require-default-props": "off",
+    "react/button-has-type": "off",
+    "no-console": ["warn", { "allow": ["warn", "error", "log"] }],
+    "no-debugger": ["warn"],
+    "consistent-return": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
+}

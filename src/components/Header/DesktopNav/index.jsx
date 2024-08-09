@@ -1,5 +1,5 @@
-import React from 'react';
-import NavMenuItems from '../NavMenuItems';
+import React from "react";
+import NavMenuItems from "../NavMenuItems";
 
 function DesktopNav() {
   return (

@@ -1,5 +1,5 @@
-import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,10 +10,10 @@ const animateAccordion = (element, isOpening, onComplete) => {
     { height: isOpening ? 0 : element.scrollHeight },
     {
       height,
-      ease: 'power1.inOut',
+      ease: "power1.inOut",
       duration: 0.3,
       onComplete: () => {
-        element.style.height = isOpening ? 'auto' : '';
+        element.style.height = isOpening ? "auto" : "";
         if (onComplete) onComplete();
       },
     },
