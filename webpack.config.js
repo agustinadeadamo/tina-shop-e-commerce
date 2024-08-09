@@ -89,7 +89,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // Path to your HTML template
+      template: './public/index.html', 
       filename: 'index.html',
     }),
     new Dotenv({
@@ -130,9 +130,9 @@ module.exports = {
     colors: true,
   },
   cache: {
-    type: 'filesystem', // Usar caché en el sistema de archivos
+    type: 'filesystem', 
     buildDependencies: {
-      config: [__filename], // Hace que Webpack recompile si el archivo de configuración cambia
+      config: [__filename],
     },
   },
   resolve: {

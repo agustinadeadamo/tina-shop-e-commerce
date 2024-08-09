@@ -7,7 +7,7 @@ const trendingProductsAnimation = children =>
       from: { opacity: 0, y: 50 },
       to: { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
     },
-    0.2, // Añade el stagger aquí
+    0.2, 
   );
 
 export default trendingProductsAnimation;
