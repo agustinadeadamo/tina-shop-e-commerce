@@ -83,7 +83,19 @@ module.exports = {
     ],
     splitChunks: {
       chunks: 'all',
-      maxSize: 200000, // Adjust this value based on your bundle analysis
+      maxSize: 200000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
     },
     runtimeChunk: 'single',
   },
