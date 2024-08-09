@@ -1,5 +1,5 @@
-import React from 'react';
-import ResponsiveMainContainer from '../../../components/ResponsiveMainContainer';
+import React from "react";
+import ResponsiveMainContainer from "../../../components/ResponsiveMainContainer";
 
 function AboutUs() {
   return (
@@ -10,9 +10,9 @@ function AboutUs() {
             Our Story
           </h2>
           <p className="text-lg text-gray-700">
-            Welcome to{' '}
+            Welcome to{" "}
             <span className="font-bold text-secondary">Tina Shop</span>, where
-            fashion meets innovation and sustainability. Founded in{' '}
+            fashion meets innovation and sustainability. Founded in{" "}
             <span className="font-bold text-secondary">2022</span>, our journey
             began with a simple yet powerful vision: to redefine the way people
             experience fashion by blending style, comfort, and ethics. We

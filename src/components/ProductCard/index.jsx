@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import RatingStars from '../RatingStars';
-import ActionsButtons from './ActionsButtons';
-import ProductImage from './ProductImage';
-import { useLazyLoad } from '../../hooks';
+import React from "react";
+import PropTypes from "prop-types";
+import RatingStars from "../RatingStars";
+import ActionsButtons from "./ActionsButtons";
+import ProductImage from "./ProductImage";
+import { useLazyLoad } from "../../hooks";
 
 /**
  * Component that displays product information.

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useProductCardActions } from '../../../hooks';
-import ProductCard from '../../../components/ProductCard';
+import React from "react";
+import PropTypes from "prop-types";
+import { useProductCardActions } from "../../../hooks";
+import ProductCard from "../../../components/ProductCard";
 
 /**
  * Component that displays a list of products.
@@ -13,7 +13,7 @@ function ProductsList({ productsToShow }) {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 py-12">
-      {productsToShow.map(product => (
+      {productsToShow.map((product) => (
         <ProductCard
           key={product.id}
           product={product}

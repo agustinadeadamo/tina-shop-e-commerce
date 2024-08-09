@@ -1,12 +1,12 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import AccordionItem from './AccordionItem';
+import React, { useState, useCallback } from "react";
+import PropTypes from "prop-types";
+import AccordionItem from "./AccordionItem";
 
 function Accordion({ accordionItems }) {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAccordion = useCallback(
-    index => {
+    (index) => {
       setActiveIndex(activeIndex === index ? null : index);
     },
     [activeIndex],

@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react';
-import teamMembers from './teamMembers';
-import ResponsiveMainContainer from '../../../components/ResponsiveMainContainer';
-import teamMembersAnimations from './animations';
-import TeamMemberCard from './TeamMemberCard';
+import React, { useRef, useEffect } from "react";
+import teamMembers from "./teamMembers";
+import ResponsiveMainContainer from "../../../components/ResponsiveMainContainer";
+import teamMembersAnimations from "./animations";
+import TeamMemberCard from "./TeamMemberCard";
 
 function Team() {
   const containerRef = useRef(null);
@@ -21,7 +21,7 @@ function Team() {
           ref={containerRef}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {teamMembers.map(member => (
+          {teamMembers.map((member) => (
             <TeamMemberCard key={member.name} member={member} />
           ))}
         </div>

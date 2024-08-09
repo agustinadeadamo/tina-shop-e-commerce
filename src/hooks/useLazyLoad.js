@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from "react";
 
 /**
  * Custom hook that uses the Intersection Observer API to detect when a component enters the viewport.
@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from 'react';
  * @param {Object} options - Configuration options for the Intersection Observer, such as root, rootMargin, and threshold.
  * @returns {[Object, boolean]} - Returns a ref to be attached to the target element and a boolean indicating whether the element is currently visible in the viewport.
  */
-const useLazyLoad = options => {
+const useLazyLoad = (options) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
 

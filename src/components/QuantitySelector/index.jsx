@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function QuantitySelector({
   quantity,
@@ -9,10 +9,10 @@ function QuantitySelector({
 }) {
   const buttonClass = `flex items-center justify-center w-7 h-7 border-2 border-primary text-primary focus:outline-none rounded-full transition-colors ${
     disabled
-      ? 'bg-secondary-light cursor-not-allowed'
-      : 'hover:bg-secondary-light'
+      ? "bg-secondary-light cursor-not-allowed"
+      : "hover:bg-secondary-light"
   }`;
-  const buttonSpanClass = 'text-2xl leading-none mb-[3px]';
+  const buttonSpanClass = "text-2xl leading-none mb-[3px]";
 
   return (
     <div className="flex items-center">
