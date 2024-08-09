@@ -1,4 +1,4 @@
-export default {
+const errorMessages = {
   UPDATE_CART: 'Error updating cart',
   FETCH_CART: 'Error while trying to retrieve items from cart',
   ADD_ITEM_CART: 'Error while trying to add item to cart.',
@@ -8,3 +8,5 @@ export default {
   SIGN_UP: 'Error while trying to sign up.',
   LOGIN: 'Error while trying to log in.',
 };
+
+export default errorMessages
