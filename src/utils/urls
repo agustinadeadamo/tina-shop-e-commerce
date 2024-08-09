@@ -1,0 +1,11 @@
+import CATEGORY_MAP from '../constants/categories';
+
+export const getPathSegments = pathname => {
+  return pathname.split('/').filter(Boolean);
+};
+
+export const translateSegment = segment => {
+  return CATEGORY_MAP[segment]
+    ? CATEGORY_MAP[segment].toUpperCase()
+    : segment.replace(/-/g, ' ').toUpperCase();
+};
