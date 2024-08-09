@@ -1,5 +1,6 @@
 // Checks if an item with the same ID as newItem exists in the items array
-const findItem = (items, newItem) => items.some(item => item.id === newItem.id);
+const findItem = (items, newItem) =>
+  items.some((item) => item.id === newItem.id);
 
 /**
  * Calculates the total quantity of items in the cart.
@@ -8,7 +9,7 @@ const findItem = (items, newItem) => items.some(item => item.id === newItem.id);
  * @param {Array} items - Array of cart items.
  * @returns {number} - Total quantity of all items in the cart.
  */
-export const calculateTotalQuantity = items =>
+export const calculateTotalQuantity = (items) =>
   items.reduce((acc, item) => acc + item.quantity, 0);
 
 /**
@@ -39,13 +40,13 @@ export const modifyCartItems = (existingItems, item, quantityToChange) => {
   // If the item exists in the cart, update its quantity
   if (itemExistsInCart) {
     return existingItems
-      .map(existingItem =>
+      .map((existingItem) =>
         updateItemQuantity(
           existingItem,
           existingItem.id === item.id ? quantityToChange : 0,
         ),
       )
-      .filter(existingItem => existingItem !== null); // Remove items with null quantity
+      .filter((existingItem) => existingItem !== null); // Remove items with null quantity
   }
 
   // If the item does not exist in the cart, add it with the specified quantity
@@ -60,7 +61,7 @@ export const modifyCartItems = (existingItems, item, quantityToChange) => {
  * @returns {Object} - Object containing the array of cart items and the total quantity.
  */
 export const loadInitialCartItems = () => {
-  const savedCartItems = localStorage.getItem('cartItems');
+  const savedCartItems = localStorage.getItem("cartItems");
   if (savedCartItems) {
     try {
       const items = JSON.parse(savedCartItems);
@@ -82,5 +83,5 @@ export const loadInitialCartItems = () => {
  * @returns {Array} - Updated array of cart items with the specified item removed.
  */
 export const removeItemFromCartItems = (items, itemIdToRemove) => {
-  return items.filter(item => item.id !== itemIdToRemove);
+  return items.filter((item) => item.id !== itemIdToRemove);
 };

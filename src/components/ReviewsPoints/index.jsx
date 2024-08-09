@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import RatingStars from '../RatingStars';
+import React from "react";
+import PropTypes from "prop-types";
+import RatingStars from "../RatingStars";
 
 function ReviewsPoints({ rate, count }) {
   const roundedRate = Math.round(rate);

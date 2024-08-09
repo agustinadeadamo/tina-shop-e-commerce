@@ -1,23 +1,23 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateCart, removeItemFromCart } from '../../actions/cart';
-import errorMesajes from '../../constants/errorMesajes';
-import CartItem from './CartItem';
-import CartHeader from './CartHeader';
-import CartBanner from './CartBanner';
-import CartFooter from './CartFooter';
-import Overlay from './Overlay';
-import './style.scss';
+import React, { useState, useCallback } from "react";
+import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import { updateCart, removeItemFromCart } from "../../actions/cart";
+import errorMesajes from "../../constants/errorMesajes";
+import CartItem from "./CartItem";
+import CartHeader from "./CartHeader";
+import CartBanner from "./CartBanner";
+import CartFooter from "./CartFooter";
+import Overlay from "./Overlay";
+import "./style.scss";
 
 function CartSidebar({ isOpen, toggleCart }) {
   const dispatch = useDispatch();
-  const items = useSelector(state => state.cart.items);
+  const items = useSelector((state) => state.cart.items);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const cartContainerStyles = `fixed top-0 right-0 bottom-0 bg-white shadow-lg z-50 transition-transform transform w-[375px] ${
-    isOpen ? 'translate-x-0' : 'translate-x-full'
+    isOpen ? "translate-x-0" : "translate-x-full"
   }`;
 
   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
@@ -32,7 +32,7 @@ function CartSidebar({ isOpen, toggleCart }) {
   };
 
   const handleRemoveItem = useCallback(
-    async item => {
+    async (item) => {
       onBeforeUpdatingCart();
       try {
         await dispatch(removeItemFromCart(item)).unwrap();
@@ -81,7 +81,7 @@ function CartSidebar({ isOpen, toggleCart }) {
             className="custom-scrollbar"
             style={{
               maxHeight: `calc(100vh - 60px - 40px - 120px)`,
-              overflowY: 'auto',
+              overflowY: "auto",
             }}
           >
             {error && <p className="text-center text-primary mt-4">{error}</p>}
@@ -90,7 +90,7 @@ function CartSidebar({ isOpen, toggleCart }) {
                 Your cart is empty
               </p>
             ) : (
-              items.map(item => (
+              items.map((item) => (
                 <CartItem
                   disabledButtons={loading}
                   handleDecreaseQuantity={() => handleQuantityChange(item, -1)}

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { getProductById } from '../api/productsService';
-import errorMesajes from '../constants/errorMesajes';
+import { useState, useEffect } from "react";
+import { getProductById } from "../api/productsService";
+import errorMesajes from "../constants/errorMesajes";
 
 /**
  * Custom hook that fetches product details based on the provided productId.
@@ -9,7 +9,7 @@ import errorMesajes from '../constants/errorMesajes';
  * @param {string} productId - The ID of the product to fetch.
  * @returns {Object} - Returns an object containing the product data, error state, and loading state.
  */
-const useProduct = productId => {
+const useProduct = (productId) => {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

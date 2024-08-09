@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useLocation, Link } from 'react-router-dom';
-import { getPathSegments, translateSegment } from '../../utils/urls';
+import React from "react";
+import PropTypes from "prop-types";
+import { useLocation, Link } from "react-router-dom";
+import { getPathSegments, translateSegment } from "../../utils/urls";
 
 function BreadcrumbItem({ segment, index, pathSegments }) {
   const segmentName = translateSegment(segment);
-  const pathTo = `/${pathSegments.slice(0, index + 1).join('/')}`;
+  const pathTo = `/${pathSegments.slice(0, index + 1).join("/")}`;
 
   return (
     <span className="flex items-center font-bebas">
-      {index > 0 && <span className="mx-2 text-gray-400">{'>'}</span>}
+      {index > 0 && <span className="mx-2 text-gray-400">{">"}</span>}
       <Link to={pathTo} className="text-gray-800 font-bold">
         {segmentName}
       </Link>

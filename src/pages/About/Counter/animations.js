@@ -1,7 +1,7 @@
-import { animateOnIntersection } from '../../../utils/animations';
+import { animateOnIntersection } from "../../../utils/animations";
 
-const counterAnimation = counters => {
-  const cleanupFunctions = counters.map(counter => {
+const counterAnimation = (counters) => {
+  const cleanupFunctions = counters.map((counter) => {
     if (!counter.ref.current) return null;
 
     return animateOnIntersection(counter.ref.current, {
@@ -9,7 +9,7 @@ const counterAnimation = counters => {
       to: {
         textContent: counter.end,
         duration: 2,
-        ease: 'power1.out',
+        ease: "power1.out",
         snap: { textContent: 1 },
         onUpdate() {
           if (counter.ref.current) {
@@ -23,7 +23,7 @@ const counterAnimation = counters => {
   });
 
   return () => {
-    cleanupFunctions.forEach(cleanup => {
+    cleanupFunctions.forEach((cleanup) => {
       if (cleanup) cleanup();
     });
   };

@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useMemo } from 'react';
-import counterAnimation from './animations';
-import CounterItem from './CounterItem';
+import React, { useRef, useEffect, useMemo } from "react";
+import counterAnimation from "./animations";
+import CounterItem from "./CounterItem";
 
 function Counter() {
   const itemsSoldRef = useRef(null);
@@ -9,9 +9,9 @@ function Counter() {
 
   const counters = useMemo(
     () => [
-      { ref: itemsSoldRef, label: 'Items Sold', end: 5000 },
-      { ref: happyCustomersRef, label: 'Happy Clients', end: 3000 },
-      { ref: collectionsLaunchedRef, label: 'New Launches', end: 120 },
+      { ref: itemsSoldRef, label: "Items Sold", end: 5000 },
+      { ref: happyCustomersRef, label: "Happy Clients", end: 3000 },
+      { ref: collectionsLaunchedRef, label: "New Launches", end: 120 },
     ],
     [],
   );

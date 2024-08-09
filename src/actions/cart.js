@@ -1,14 +1,14 @@
-import { createAsyncThunk, createAction } from '@reduxjs/toolkit';
-import { fetchCartItemsFromDB, syncCartWithDB } from '../api/cartService';
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import { fetchCartItemsFromDB, syncCartWithDB } from "../api/cartService";
 import {
   calculateTotalQuantity,
   modifyCartItems,
   removeItemFromCartItems,
-} from '../utils/cart';
-import { auth } from '../../firebase-config';
+} from "../utils/cart";
+import { auth } from "../../firebase-config";
 
 export const fetchCartItems = createAsyncThunk(
-  'cart/fetchCartItems',
+  "cart/fetchCartItems",
   async () => {
     const items = await fetchCartItemsFromDB();
     return {
@@ -18,7 +18,7 @@ export const fetchCartItems = createAsyncThunk(
   },
 );
 
-const syncCart = async updatedItems => {
+const syncCart = async (updatedItems) => {
   if (auth.currentUser) {
     await syncCartWithDB(updatedItems);
   }
@@ -29,7 +29,7 @@ const syncCart = async updatedItems => {
 };
 
 export const updateCart = createAsyncThunk(
-  'cart/updateCart',
+  "cart/updateCart",
   async (newItem, { getState }) => {
     const { cart } = getState();
     const updatedItems = modifyCartItems(cart.items, newItem, newItem.quantity);
@@ -38,7 +38,7 @@ export const updateCart = createAsyncThunk(
 );
 
 export const removeItemFromCart = createAsyncThunk(
-  'cart/removeItemFromCart',
+  "cart/removeItemFromCart",
   async (itemToRemove, { getState }) => {
     const { cart } = getState();
     const updatedItems = removeItemFromCartItems(cart.items, itemToRemove.id);
@@ -47,4 +47,4 @@ export const removeItemFromCart = createAsyncThunk(
   },
 );
 
-export const clearCart = createAction('cart/clearCart');
+export const clearCart = createAction("cart/clearCart");

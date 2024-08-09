@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FaTimes } from 'react-icons/fa';
+import React from "react";
+import PropTypes from "prop-types";
+import { FaTimes } from "react-icons/fa";
 
 function CartHeader({ totalItems, toggleCart }) {
   return (

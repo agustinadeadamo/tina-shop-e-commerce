@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { FaShoppingCart } from 'react-icons/fa';
-import CartSidebar from '../../Cart';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { FaShoppingCart } from "react-icons/fa";
+import CartSidebar from "../../Cart";
 
 function CartButton() {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const totalQuantity = useSelector(state => state.cart.totalQuantity);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
