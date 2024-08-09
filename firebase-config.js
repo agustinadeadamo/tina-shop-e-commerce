@@ -13,10 +13,10 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-// Inicializa Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Inicializa servicios
+// Initialize services
 const db = getFirestore(app);
 const auth = getAuth(app);
 
