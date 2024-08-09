@@ -1,9 +1,24 @@
 import CATEGORY_MAP from '../constants/categories';
 
+/**
+ * Splits a pathname into its individual segments.
+ * This function removes any leading or trailing slashes and filters out any empty segments.
+ *
+ * @param {string} pathname - The URL pathname to split into segments.
+ * @returns {string[]} An array of pathname segments.
+ */
 export const getPathSegments = pathname => {
   return pathname.split('/').filter(Boolean);
 };
 
+/**
+ * Translates a URL segment into a readable format.
+ * If the segment exists in CATEGORY_MAP, it returns the corresponding value in uppercase.
+ * If the segment is not in CATEGORY_MAP, it replaces hyphens with spaces and converts it to uppercase.
+ *
+ * @param {string} segment - The URL segment to translate.
+ * @returns {string} The translated and formatted segment.
+ */
 export const translateSegment = segment => {
   return CATEGORY_MAP[segment]
     ? CATEGORY_MAP[segment].toUpperCase()
