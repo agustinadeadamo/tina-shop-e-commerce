@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import ErrorPopup from '../components/ErrorPopUp';
+import React, { createContext, useContext, useState, useMemo } from "react";
+import PropTypes from "prop-types";
+import ErrorPopup from "../components/ErrorPopUp";
 
 export const GeneralErrorContext = createContext();
 
@@ -11,7 +11,7 @@ export const useError = () => useContext(GeneralErrorContext);
 export function GeneralErrorProvider({ children }) {
   const [error, setError] = useState(null);
 
-  const showError = message => setError(message);
+  const showError = (message) => setError(message);
   const hideError = () => setError(null);
 
   // Memoize the context value to avoid unnecessary re-renders

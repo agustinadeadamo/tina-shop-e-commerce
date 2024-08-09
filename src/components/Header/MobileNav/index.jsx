@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import NavMenuItems from '../NavMenuItems';
-import CartButton from '../CartButton';
-import AuthButton from '../AuthButton';
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import NavMenuItems from "../NavMenuItems";
+import CartButton from "../CartButton";
+import AuthButton from "../AuthButton";
 
 function MobileNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(prevState => !prevState);
+    setIsMenuOpen((prevState) => !prevState);
   };
 
   return (
@@ -21,7 +21,7 @@ function MobileNav() {
           onClick={toggleMenu}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMenuOpen ? (
             <FaTimes className="h-6 w-6" />

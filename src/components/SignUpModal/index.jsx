@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { Form } from 'react-final-form';
-import { auth } from '../../../firebase-config';
-import { useModal } from '../../contexts/ModalContexts';
-import errorMesajes from '../../constants/errorMesajes';
-import { SecondaryButton, PrimaryButton } from '../Buttons';
-import Modal from '../Modal';
-import { EmailField, PasswordField } from '../Form';
+import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Form } from "react-final-form";
+import { auth } from "../../../firebase-config";
+import { useModal } from "../../contexts/ModalContexts";
+import errorMesajes from "../../constants/errorMesajes";
+import { SecondaryButton, PrimaryButton } from "../Buttons";
+import Modal from "../Modal";
+import { EmailField, PasswordField } from "../Form";
 
 function SignupModal() {
   const { isSignupModalOpen, closeSignupModal, openLoginModal } = useModal();
   const [signupError, setSignupError] = useState(null);
 
-  const onSubmit = async values => {
+  const onSubmit = async (values) => {
     if (values.password !== values.confirmPassword) {
       return;
     }
@@ -24,13 +24,13 @@ function SignupModal() {
     }
   };
 
-  const validatePasswordsMatch = values => {
+  const validatePasswordsMatch = (values) => {
     const errors = {};
     const { password, confirmPassword } = values;
     if (!confirmPassword) {
-      errors.confirmPassword = 'Required';
+      errors.confirmPassword = "Required";
     } else if (confirmPassword !== password) {
-      errors.confirmPassword = 'Passwords must match';
+      errors.confirmPassword = "Passwords must match";
     }
     return errors;
   };

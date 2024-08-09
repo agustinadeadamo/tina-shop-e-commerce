@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FaTimes } from 'react-icons/fa';
+import React from "react";
+import PropTypes from "prop-types";
+import { FaTimes } from "react-icons/fa";
 
-function Modal({ isOpen, onClose, children, width = 'md:max-w-screen-md' }) {
+function Modal({ isOpen, onClose, children, width = "md:max-w-screen-md" }) {
   if (!isOpen) {
     return null;
   }

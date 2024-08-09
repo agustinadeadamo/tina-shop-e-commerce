@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import infoCardData from './infoCardData';
-import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
+import React from "react";
+import PropTypes from "prop-types";
+import infoCardData from "./infoCardData";
+import ResponsiveContainer from "../../../components/ResponsiveMainContainer";
 
 function InfoCard({ title, icon, copy }) {
   return (
@@ -28,7 +28,7 @@ function InfoCards() {
     <div className="relative py-4 px-3 bg-tertiary lg:w-[1000px]">
       <ResponsiveContainer>
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-          {infoCardData.map(info => (
+          {infoCardData.map((info) => (
             <InfoCard
               key={info.id}
               title={info.title}

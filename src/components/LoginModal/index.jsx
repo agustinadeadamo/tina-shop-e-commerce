@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Form } from 'react-final-form';
-import { useDispatch } from 'react-redux';
-import { useModal } from '../../contexts/ModalContexts';
-import { fetchCartItems } from '../../actions/cart';
-import errorMesajes from '../../constants/errorMesajes';
-import Modal from '../Modal';
-import { EmailField, PasswordField } from '../Form';
-import { PrimaryButton, SecondaryButton } from '../Buttons';
-import { useAuth } from '../../contexts/AuthContext';
-import { useError } from '../../contexts/GeneralErrorContext';
+import React, { useState } from "react";
+import { Form } from "react-final-form";
+import { useDispatch } from "react-redux";
+import { useModal } from "../../contexts/ModalContexts";
+import { fetchCartItems } from "../../actions/cart";
+import errorMesajes from "../../constants/errorMesajes";
+import Modal from "../Modal";
+import { EmailField, PasswordField } from "../Form";
+import { PrimaryButton, SecondaryButton } from "../Buttons";
+import { useAuth } from "../../contexts/AuthContext";
+import { useError } from "../../contexts/GeneralErrorContext";
 
 function LoginModal() {
   const { isLoginModalOpen, closeLoginModal, openSignupModal } = useModal();
@@ -25,7 +25,7 @@ function LoginModal() {
     }
   };
 
-  const onSubmit = async values => {
+  const onSubmit = async (values) => {
     setLoginError(null);
     try {
       await login(values.email, values.password);

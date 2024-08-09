@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import reviewsData from './reviewsData';
-import ReviewCard from './ReviewCard';
-import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
-import reviewsAnimation from './animations';
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import reviewsData from "./reviewsData";
+import ReviewCard from "./ReviewCard";
+import ResponsiveContainer from "../../../components/ResponsiveMainContainer";
+import reviewsAnimation from "./animations";
 
 function Reviews() {
   // References for GSAP animations
@@ -33,7 +33,7 @@ function Reviews() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Render each ReviewCard */}
-            {reviewsData.map(review => (
+            {reviewsData.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </div>

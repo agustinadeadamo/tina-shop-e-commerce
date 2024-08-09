@@ -89,7 +89,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', 
+      template: './public/index.html',
       filename: 'index.html',
     }),
     new Dotenv({
@@ -130,7 +130,7 @@ module.exports = {
     colors: true,
   },
   cache: {
-    type: 'filesystem', 
+    type: 'filesystem',
     buildDependencies: {
       config: [__filename],
     },

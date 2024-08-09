@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import WomanImage from '../../../images/happy-woman.png';
-import { PrimaryButton } from '../../../components/Buttons';
-import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
-import heroBannerAnimations from './animations';
+import React, { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import WomanImage from "../../../images/happy-woman.png";
+import { PrimaryButton } from "../../../components/Buttons";
+import ResponsiveContainer from "../../../components/ResponsiveMainContainer";
+import heroBannerAnimations from "./animations";
 
 function HeroBanner() {
   const navigate = useNavigate();
@@ -21,14 +21,14 @@ function HeroBanner() {
     }
   }, [bannerRef, womanRef, initialTextRefs]);
 
-  const addToRefs = el => {
+  const addToRefs = (el) => {
     if (el && !initialTextRefs.current.includes(el)) {
       initialTextRefs.current.push(el);
     }
   };
 
   const onClickExplore = () => {
-    navigate('/store');
+    navigate("/store");
   };
 
   return (

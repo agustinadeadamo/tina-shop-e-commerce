@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import ResponsiveContainer from '../ResponsiveMainContainer';
-import ProductCard from '../ProductCard';
-import { useProductCardActions } from '../../hooks';
-import trendingProductsAnimation from './animations';
+import React, { useRef, useEffect } from "react";
+import PropTypes from "prop-types";
+import ResponsiveContainer from "../ResponsiveMainContainer";
+import ProductCard from "../ProductCard";
+import { useProductCardActions } from "../../hooks";
+import trendingProductsAnimation from "./animations";
 
 function TrendingProducts({ products }) {
   const containerRef = useRef(null);
@@ -26,7 +26,7 @@ function TrendingProducts({ products }) {
           className="grid grid-cols-1 md:grid-cols-4 gap-4"
           ref={containerRef}
         >
-          {products.map(product => (
+          {products.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
