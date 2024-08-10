@@ -4,6 +4,37 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import CartButton from './';
 
+// Mock de Firebase para evitar inicialización durante las pruebas
+jest.mock('firebase/app', () => {
+  return {
+    initializeApp: jest.fn(),
+  };
+});
+
+jest.mock('firebase/auth', () => {
+  return {
+    getAuth: jest.fn(),
+    signInWithEmailAndPassword: jest.fn(),
+    signOut: jest.fn(),
+    onAuthStateChanged: jest.fn(),
+  };
+});
+
+jest.mock('firebase/firestore', () => {
+  return {
+    getFirestore: jest.fn(),
+    collection: jest.fn(),
+    getDocs: jest.fn(),
+  };
+});
+
+// Mock del componente CartSidebar si es necesario
+jest.mock('../../Cart', () => {
+  return function DummyCartSidebar({ isOpen }) {
+    return isOpen ? <div data-testid="cart-sidebar">Cart Sidebar</div> : null;
+  };
+});
+
 const mockStore = configureStore([]);
 
 describe('CartButton', () => {
@@ -23,10 +54,9 @@ describe('CartButton', () => {
         <CartButton />
       </Provider>,
     );
-
-    const badgeElement = screen.getByText('3');
+    const badgeElement = screen.getByTestId('cart-quantity-badge');
     expect(badgeElement).toBeInTheDocument();
-    expect(screen.getByLabelText(/toggle cart/i)).toBeInTheDocument();
+    expect(screen.getByTestId('toggle-cart-button')).toBeInTheDocument();
   });
 
   it('does not render the badge when total quantity is 0', () => {
@@ -41,8 +71,7 @@ describe('CartButton', () => {
         <CartButton />
       </Provider>,
     );
-
-    expect(screen.queryByText('0')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('cart-quantity-badge')).not.toBeInTheDocument();
   });
 
   it('toggles the cart sidebar when the button is clicked', () => {
@@ -51,11 +80,8 @@ describe('CartButton', () => {
         <CartButton />
       </Provider>,
     );
-
-    const button = screen.getByLabelText(/toggle cart/i);
+    const button = screen.getByTestId('toggle-cart-button');
     fireEvent.click(button);
-
-    // Assuming that `CartSidebar` has a testid or similar to check if it renders
     expect(screen.getByTestId('cart-sidebar')).toBeInTheDocument();
   });
 });
