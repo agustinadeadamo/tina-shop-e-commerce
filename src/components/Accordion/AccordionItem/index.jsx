@@ -14,11 +14,12 @@ function AccordionItem({ section, index, isOpen, onClick }) {
   }, [isOpen]);
 
   return (
-    <div className="mb-4">
+    <div className="mb-4" data-testid="accordion-item">
       <button
         type="button"
         onClick={() => onClick(index)}
         className="w-full flex justify-between items-center bg-transparent pb-4 pt-4 rounded-none focus:outline-none border-b border-gray-200"
+        data-testid={`accordion-button-${index}`}
       >
         <span>{section.title}</span>
         <Icon isOpen={isOpen} />
@@ -28,6 +29,7 @@ function AccordionItem({ section, index, isOpen, onClick }) {
         className={`overflow-hidden transition-height duration-300 ${
           isOpen ? "h-auto" : "h-0"
         }`}
+        data-testid={`accordion-content-container-${index}`}
       >
         <div className="p-4 border-t border-gray-200">
           <p>{section.content}</p>
