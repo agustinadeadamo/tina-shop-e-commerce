@@ -5,14 +5,12 @@ import DiscountProductCard from './';
 import * as animations from '../../../../utils/animations';
 import { useNavigate } from 'react-router-dom';
 
-// Mock animations and navigation to avoid real behaviors during tests
 jest.mock('../../../../utils/animations');
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn(),
 }));
 
-// Test data that you will use in all the tests
 const mockProps = {
   title: 'Special Offer',
   subtitle: 'Limited Time Only',
@@ -27,7 +25,7 @@ const mockProps = {
 
 const renderWithRouter = (content, { route = '/' } = {}) => {
   return render(
-    <MemoryRouter initialEntries={[route]}>{content}</MemoryRouter>,
+    <MemoryRouter initialEntries={[route]}>{content}</MemoryRouter>
   );
 };
 
@@ -43,7 +41,7 @@ describe('DiscountProductCard', () => {
     renderWithRouter(<DiscountProductCard {...mockProps} />);
     expect(animations.animateOnIntersection).toHaveBeenCalledWith(
       expect.anything(),
-      mockProps.animation,
+      mockProps.animation
     );
   });
 

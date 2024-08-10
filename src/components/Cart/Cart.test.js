@@ -3,7 +3,6 @@ import { screen, fireEvent } from '@testing-library/react';
 import { renderWithFirebaseMocks } from '../../utils/firebaseMocks';
 import CartSidebar from './';
 import errorMesajes from '../../constants/errorMesajes';
-import { removeItemFromCart, updateCart } from '../../actions/cart';
 
 jest.mock('../../actions/cart', () => ({
   removeItemFromCart: jest.fn(() => {
@@ -41,7 +40,7 @@ describe('CartSidebar', () => {
       <CartSidebar isOpen={true} toggleCart={jest.fn()} />,
       {
         initialState,
-      },
+      }
     );
     expect(screen.getByText('Test Product 1')).toBeInTheDocument();
     expect(screen.getByText('Test Product 2')).toBeInTheDocument();
@@ -54,7 +53,7 @@ describe('CartSidebar', () => {
       <CartSidebar isOpen={true} toggleCart={jest.fn()} />,
       {
         initialState: { cart: { items: [] } },
-      },
+      }
     );
     expect(screen.getByText('Your cart is empty')).toBeInTheDocument();
   });
@@ -64,10 +63,10 @@ describe('CartSidebar', () => {
       <CartSidebar isOpen={true} toggleCart={jest.fn()} />,
       {
         initialState,
-      },
+      }
     );
     fireEvent.click(
-      screen.getByRole('button', { name: /Remove Test Product 1 from cart/i }),
+      screen.getByRole('button', { name: /Remove Test Product 1 from cart/i })
     );
     expect(screen.getByText(errorMesajes.REMOVE_ITEM)).toBeInTheDocument();
   });
