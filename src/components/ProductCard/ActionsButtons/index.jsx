@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FaShoppingCart, FaEye } from "react-icons/fa";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FaShoppingCart, FaEye } from 'react-icons/fa';
 
 function ActionButtons({ handleAddToCart, handleViewMore, id }) {
   const generalButtonClasses =
-    "p-3 w-12 h-12 flex items-center justify-center  focus:outline-none";
+    'p-3 w-12 h-12 flex items-center justify-center  focus:outline-none';
 
   return (
     <div className="absolute inset-0 flex items-center justify-end opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 p-4">

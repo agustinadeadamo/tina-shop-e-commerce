@@ -10,10 +10,10 @@ describe('AccordionItem', () => {
         index={0}
         isOpen={true}
         onClick={() => {}}
-      />,
+      />
     );
     expect(screen.getByTestId('accordion-content-container-0')).toHaveClass(
-      'h-auto',
+      'h-auto'
     );
     expect(screen.getByText('Content')).toBeInTheDocument();
   });
@@ -25,10 +25,10 @@ describe('AccordionItem', () => {
         index={0}
         isOpen={false}
         onClick={() => {}}
-      />,
+      />
     );
     expect(screen.getByTestId('accordion-content-container-0')).toHaveClass(
-      'h-0',
+      'h-0'
     );
     expect(screen.getByText('Content')).toBeInTheDocument();
   });
@@ -41,7 +41,7 @@ describe('AccordionItem', () => {
         index={1}
         isOpen={false}
         onClick={handleClick}
-      />,
+      />
     );
     fireEvent.click(screen.getByTestId('accordion-button-1'));
     expect(handleClick).toHaveBeenCalledWith(1);

@@ -1,9 +1,9 @@
-import { AuthContext, AuthProvider } from "./AuthContext";
-import { ModalContext, ModalProvider } from "./ModalContexts";
+import { AuthContext, AuthProvider } from './AuthContext';
+import { ModalContext, ModalProvider } from './ModalContexts';
 import {
   GeneralErrorContext,
   GeneralErrorProvider,
-} from "./GeneralErrorContext";
+} from './GeneralErrorContext';
 
 export {
   AuthContext,

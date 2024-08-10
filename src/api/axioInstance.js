@@ -1,14 +1,14 @@
-import axios from "axios";
+import axios from 'axios';
 
 // Base URL for the Fakestore API
-const apiBaseUrl = "https://fakestoreapi.com";
+const apiBaseUrl = 'https://fakestoreapi.com';
 
 const axiosInstance = axios.create({
   baseURL: apiBaseUrl,
   timeout: 10000,
   headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
   },
 });
 
@@ -20,7 +20,7 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     return Promise.reject(error);
-  },
+  }
 );
 
 export default axiosInstance;

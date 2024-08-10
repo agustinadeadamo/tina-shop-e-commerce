@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { getAllProducts, getProductsByCategory } from "../api/productsService";
-import errorMesajes from "../constants/errorMesajes";
+import { useState, useEffect } from 'react';
+import { getAllProducts, getProductsByCategory } from '../api/productsService';
+import errorMesajes from '../constants/errorMesajes';
 
 /**
  * Custom hook that fetches a list of products, either all products or products filtered by category.

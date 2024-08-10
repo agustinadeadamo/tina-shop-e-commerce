@@ -1,5 +1,5 @@
-import { gsap } from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 export default gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +13,7 @@ export default gsap.registerPlugin(ScrollTrigger);
 export const animateElement = (
   element,
   animation,
-  scrollTriggerOptions = null,
+  scrollTriggerOptions = null
 ) => {
   const animOptions = {
     ...animation.to,
@@ -71,14 +71,14 @@ export const setupIntersectionObserverForElements = (
   containerRef,
   animation,
   stagger = 0.2,
-  options = { threshold: 0.3 },
+  options = { threshold: 0.3 }
 ) => {
   if (!containerRef.current) return;
 
   const elements = Array.from(containerRef.current.children);
 
   elements.forEach((element) => {
-    element.style.visibility = "hidden";
+    element.style.visibility = 'hidden';
   });
 
   const observer = new IntersectionObserver((entries, observerInstance) => {
@@ -86,7 +86,7 @@ export const setupIntersectionObserverForElements = (
       if (entry.isIntersecting) {
         animateMultipleElements(elements, animation, stagger);
         elements.forEach((element) => {
-          element.style.visibility = "visible";
+          element.style.visibility = 'visible';
         });
         observerInstance.unobserve(entry.target);
       }
@@ -107,15 +107,15 @@ export const setupIntersectionObserverForElements = (
 export const animateOnIntersection = (
   element,
   animation,
-  options = { threshold: 0.3 },
+  options = { threshold: 0.3 }
 ) => {
   if (!element) return;
 
-  element.style.visibility = "hidden";
+  element.style.visibility = 'hidden';
 
   const observer = new IntersectionObserver(([entry], observerInstance) => {
     if (entry.isIntersecting) {
-      entry.target.style.visibility = "visible";
+      entry.target.style.visibility = 'visible';
       animateElement(entry.target, animation);
 
       observerInstance.disconnect();

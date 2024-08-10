@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import CATEGORY_MAP from "../../constants/categories";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import CATEGORY_MAP from '../../constants/categories';
 
 function CategoryNav() {
   return (

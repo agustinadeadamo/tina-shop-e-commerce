@@ -40,7 +40,7 @@ describe('FieldInput', () => {
     const inputElement = screen.getByTestId('field-input');
     expect(inputElement).toHaveClass('border-red-500');
     expect(screen.getByTestId('error-message')).toHaveTextContent(
-      'This field is required',
+      'This field is required'
     );
   });
 

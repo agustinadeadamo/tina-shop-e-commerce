@@ -15,7 +15,7 @@ describe('Label', () => {
     render(
       <Label htmlFor="test-input" required>
         Test Label
-      </Label>,
+      </Label>
     );
 
     const asteriskElement = screen.getByText('*');
@@ -32,7 +32,7 @@ describe('Label', () => {
     render(
       <Label htmlFor="test-input">
         <span>Custom Label Content</span>
-      </Label>,
+      </Label>
     );
 
     const customContent = screen.getByText('Custom Label Content');

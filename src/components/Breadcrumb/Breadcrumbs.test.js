@@ -9,23 +9,23 @@ jest.mock('../../utils/urls', () => ({
   translateSegment: jest.fn(),
 }));
 
-const renderBreadcrumbWithRouter = path => {
+const renderBreadcrumbWithRouter = (path) => {
   return render(
     <MemoryRouter initialEntries={[path]}>
       <Breadcrumb />
-    </MemoryRouter>,
+    </MemoryRouter>
   );
 };
 
 describe('Breadcrumb', () => {
   beforeEach(() => {
     getPathSegments.mockReturnValue(['category', 'subcategory', 'product']);
-    translateSegment.mockImplementation(segment => segment.toUpperCase());
+    translateSegment.mockImplementation((segment) => segment.toUpperCase());
   });
 
   it('renders breadcrumb items and links correctly based on the pathname', () => {
     const { getByText } = renderBreadcrumbWithRouter(
-      '/category/subcategory/product',
+      '/category/subcategory/product'
     );
 
     const categoryLink = getByText('CATEGORY');
@@ -39,11 +39,11 @@ describe('Breadcrumb', () => {
     expect(categoryLink.closest('a')).toHaveAttribute('href', '/category');
     expect(subcategoryLink.closest('a')).toHaveAttribute(
       'href',
-      '/category/subcategory',
+      '/category/subcategory'
     );
     expect(productLink.closest('a')).toHaveAttribute(
       'href',
-      '/category/subcategory/product',
+      '/category/subcategory/product'
     );
   });
 });

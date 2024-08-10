@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from 'react';
 
 /**
  * Custom hook that uses the Intersection Observer API to detect when a component enters the viewport.

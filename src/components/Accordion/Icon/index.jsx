@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 function Icon({ isOpen }) {
   return isOpen ? (

@@ -1,10 +1,10 @@
-import React from "react";
-import { signOut } from "firebase/auth";
-import { useDispatch } from "react-redux";
-import { SecondaryButton } from "../../../Buttons";
-import { auth } from "../../../../../firebase-config";
-import { clearCart } from "../../../../actions/cart";
-import { useError } from "../../../../contexts/GeneralErrorContext";
+import React from 'react';
+import { signOut } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
+import { SecondaryButton } from '../../../Buttons';
+import { auth } from '../../../../../firebase-config';
+import { clearCart } from '../../../../actions/cart';
+import { useError } from '../../../../contexts/GeneralErrorContext';
 
 function LogoutButton() {
   const dispatch = useDispatch();

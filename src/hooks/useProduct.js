@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { getProductById } from "../api/productsService";
-import errorMesajes from "../constants/errorMesajes";
+import { useState, useEffect } from 'react';
+import { getProductById } from '../api/productsService';
+import errorMesajes from '../constants/errorMesajes';
 
 /**
  * Custom hook that fetches product details based on the provided productId.

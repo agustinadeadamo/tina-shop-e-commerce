@@ -1,16 +1,16 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import Logo from "../../images/logo.png";
-import CartButton from "./CartButton";
-import AuthButton from "./AuthButton";
-import MobileNav from "./MobileNav";
-import DesktopNav from "./DesktopNav";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Logo from '../../images/logo.png';
+import CartButton from './CartButton';
+import AuthButton from './AuthButton';
+import MobileNav from './MobileNav';
+import DesktopNav from './DesktopNav';
 
 function Header() {
   const navigate = useNavigate();
 
   const onClickLogo = () => {
-    navigate("/");
+    navigate('/');
   };
 
   return (

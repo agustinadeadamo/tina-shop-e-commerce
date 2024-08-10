@@ -1,5 +1,5 @@
-import axiosInstance from "./axioInstance";
-import handleError from "../utils/handleError";
+import axiosInstance from './axioInstance';
+import handleError from '../utils/handleError';
 
 /**
  * Fetches a list of products from the API, limited by the specified number.
@@ -56,7 +56,7 @@ export const getProductsByCategory = async (category) => {
 export const searchProducts = async (query) => {
   try {
     const response = await axiosInstance.get(
-      `/products?title=${encodeURIComponent(query)}`,
+      `/products?title=${encodeURIComponent(query)}`
     );
     return response.data;
   } catch (error) {

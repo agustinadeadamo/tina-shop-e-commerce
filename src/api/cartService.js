@@ -1,6 +1,6 @@
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db, auth } from "../../firebase-config";
-import handleError from "../utils/handleError";
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { db, auth } from '../../firebase-config';
+import handleError from '../utils/handleError';
 
 /**
  * Returns a reference to the current user's cart document in Firestore.
@@ -11,7 +11,7 @@ import handleError from "../utils/handleError";
  */
 const getCartRef = () => {
   const userId = auth.currentUser.uid;
-  return doc(db, "carts", userId);
+  return doc(db, 'carts', userId);
 };
 
 /**

@@ -6,7 +6,7 @@ describe('ColorOption', () => {
   it('applies the correct styles when selected', () => {
     const mockOnSelect = jest.fn();
     render(
-      <ColorOption color="green" isSelected={true} onSelect={mockOnSelect} />,
+      <ColorOption color="green" isSelected={true} onSelect={mockOnSelect} />
     );
     const colorOption = screen.getByRole('button', {
       name: /select color green/i,

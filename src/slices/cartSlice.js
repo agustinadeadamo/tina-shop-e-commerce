@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchCartItems,
   updateCart,
   removeItemFromCart,
-} from "../actions/cart";
+} from '../actions/cart';
 
 /**
  * Loads the initial state of the cart from localStorage.
@@ -12,7 +12,7 @@ import {
  * @returns {Array} - The array of cart items retrieved from localStorage, or an empty array if none are found.
  */
 const loadInitialCartState = () => {
-  const savedCart = localStorage.getItem("cartItems");
+  const savedCart = localStorage.getItem('cartItems');
   return savedCart ? JSON.parse(savedCart) : [];
 };
 
@@ -20,7 +20,7 @@ const initialState = {
   items: loadInitialCartState(),
   totalQuantity: loadInitialCartState().reduce(
     (acc, item) => acc + item.quantity,
-    0,
+    0
   ),
 };
 
@@ -34,7 +34,7 @@ const initialState = {
 const updateStateAndLocalStorage = (state, action) => {
   state.items = action.payload.items;
   state.totalQuantity = action.payload.totalQuantity;
-  localStorage.setItem("cartItems", JSON.stringify(state.items));
+  localStorage.setItem('cartItems', JSON.stringify(state.items));
 };
 
 /**
@@ -42,7 +42,7 @@ const updateStateAndLocalStorage = (state, action) => {
  * This includes actions to clear the cart, fetch items, update the cart, and remove items from the cart.
  */
 const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
   reducers: {
     /**
@@ -54,7 +54,7 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
       state.totalQuantity = 0;
-      localStorage.removeItem("cartItems");
+      localStorage.removeItem('cartItems');
     },
   },
   extraReducers: (builder) => {

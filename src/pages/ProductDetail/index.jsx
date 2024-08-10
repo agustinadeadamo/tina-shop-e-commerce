@@ -4,17 +4,17 @@ import React, {
   useState,
   useCallback,
   useMemo,
-} from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import Loader from "../../components/Loader";
-import ProductImage from "./ProductImage";
-import ProductInfo from "./ProductInfo";
-import TrendingProducts from "../../components/TrendingProducts";
-import { useProducts, useProduct } from "../../hooks";
-import { updateCart } from "../../actions/cart";
-import errorMesajes from "../../constants/errorMesajes";
-import ResponsiveContainer from "../../components/ResponsiveMainContainer";
+} from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import Loader from '../../components/Loader';
+import ProductImage from './ProductImage';
+import ProductInfo from './ProductInfo';
+import TrendingProducts from '../../components/TrendingProducts';
+import { useProducts, useProduct } from '../../hooks';
+import { updateCart } from '../../actions/cart';
+import errorMesajes from '../../constants/errorMesajes';
+import ResponsiveContainer from '../../components/ResponsiveMainContainer';
 
 function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
@@ -27,7 +27,7 @@ function ProductDetail() {
   const { products } = useProducts(5);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
   useEffect(() => {
@@ -36,13 +36,13 @@ function ProductDetail() {
 
   const increaseQuantity = useCallback(
     () => setQuantity((prevQuantity) => prevQuantity + 1),
-    [],
+    []
   );
 
   const decreaseQuantity = useCallback(
     () =>
       setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1)),
-    [],
+    []
   );
 
   const onBeforeUpdatingCart = () => {
@@ -66,7 +66,7 @@ function ProductDetail() {
       products
         .filter((similarProduct) => similarProduct?.id !== product?.id)
         .slice(0, 4),
-    [product, products],
+    [product, products]
   );
 
   return (

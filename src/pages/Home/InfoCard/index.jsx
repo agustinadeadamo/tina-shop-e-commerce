@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import infoCardData from "./infoCardData";
-import ResponsiveContainer from "../../../components/ResponsiveMainContainer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import infoCardData from './infoCardData';
+import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
 
 function InfoCard({ title, icon, copy }) {
   return (

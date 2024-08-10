@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from "react";
-import PropTypes from "prop-types";
-import AccordionItem from "./AccordionItem";
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import AccordionItem from './AccordionItem';
 
 function Accordion({ accordionItems }) {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -9,7 +9,7 @@ function Accordion({ accordionItems }) {
     (index) => {
       setActiveIndex(activeIndex === index ? null : index);
     },
-    [activeIndex],
+    [activeIndex]
   );
 
   return (
@@ -32,7 +32,7 @@ Accordion.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
-    }),
+    })
   ).isRequired,
 };
 

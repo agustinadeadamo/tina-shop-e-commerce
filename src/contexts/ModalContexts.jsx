@@ -4,8 +4,8 @@ import React, {
   useState,
   useMemo,
   useCallback,
-} from "react";
-import PropTypes from "prop-types";
+} from 'react';
+import PropTypes from 'prop-types';
 
 export const ModalContext = createContext();
 
@@ -37,7 +37,7 @@ export function ModalProvider({ children }) {
       closeLoginModal,
       openSignupModal,
       closeSignupModal,
-    ],
+    ]
   );
 
   return (

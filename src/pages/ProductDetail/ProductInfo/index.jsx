@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { PrimaryButton } from "../../../components/Buttons";
-import QuantitySelector from "../../../components/QuantitySelector";
-import Accordion from "../../../components/Accordion";
-import ReviewsPoints from "../../../components/ReviewsPoints";
-import ColorSection from "../ColorSection";
-import productDetailData from "./productDetailData";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { PrimaryButton } from '../../../components/Buttons';
+import QuantitySelector from '../../../components/QuantitySelector';
+import Accordion from '../../../components/Accordion';
+import ReviewsPoints from '../../../components/ReviewsPoints';
+import ColorSection from '../ColorSection';
+import productDetailData from './productDetailData';
 
 function ProductInfo({
   product,
