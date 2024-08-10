@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function ColorOption({ color, isSelected, onSelect }) {
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
+function ColorOption({ color, isSelected, onSelect, dataTestid }) {
+  const handleKeyDown = e => {
+    if (e.key === 'Enter' || e.key === ' ') {
       onSelect();
     }
   };
 
   const getColorClasses = () => {
     return `w-8 h-8 rounded-full cursor-pointer ${
-      isSelected ? "border-2 border-gray-800" : "border border-gray-300"
+      isSelected ? 'border-2 border-gray-800' : 'border border-gray-300'
     }`;
   };
 
@@ -23,6 +23,7 @@ function ColorOption({ color, isSelected, onSelect }) {
       role="button"
       tabIndex={0}
       onKeyDown={handleKeyDown}
+      data-testid={dataTestid}
     />
   );
 }
