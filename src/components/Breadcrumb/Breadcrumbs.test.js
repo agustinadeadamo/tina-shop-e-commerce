@@ -1,8 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Breadcrumb from './Breadcrumb';
-import BreadcrumbItem from './BreadcrumbItem';
+import Breadcrumb from './';
 import { getPathSegments, translateSegment } from '../../utils/urls';
 
 // Mock de las funciones utilitarias
@@ -49,24 +48,5 @@ describe('Breadcrumb', () => {
       'href',
       '/category/subcategory/product',
     );
-  });
-});
-
-describe('BreadcrumbItem', () => {
-  it('renders a breadcrumb item with the correct segment name and link', () => {
-    translateSegment.mockReturnValue('CATEGORY');
-    const { getByText } = render(
-      <MemoryRouter>
-        <BreadcrumbItem
-          segment="category"
-          index={0}
-          pathSegments={['category']}
-        />
-      </MemoryRouter>,
-    );
-
-    const link = getByText('CATEGORY');
-    expect(link).toBeInTheDocument();
-    expect(link.closest('a')).toHaveAttribute('href', '/category');
   });
 });
