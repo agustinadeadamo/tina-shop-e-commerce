@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    publicPath: './',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -118,7 +118,7 @@ module.exports = {
     new BundleAnalyzerPlugin({
       analyzerMode:
         process.env.NODE_ENV === 'production' ? 'static' : 'disabled',
-      openAnalyzer: false, // Set to true to open analyzer automatically
+      openAnalyzer: false,
     }),
   ],
   devServer: {

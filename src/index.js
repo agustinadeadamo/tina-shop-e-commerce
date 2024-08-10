@@ -8,7 +8,7 @@ import './tailwind.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React>
+  <React.StrictMode>
     <AuthProvider>
       <GeneralErrorProvider>
         <ModalProvider>
@@ -18,5 +18,5 @@ root.render(
         </ModalProvider>
       </GeneralErrorProvider>
     </AuthProvider>
-  </React>
+  </React.StrictMode>
 );
