@@ -4,47 +4,44 @@ import { MemoryRouter } from 'react-router-dom';
 import Breadcrumb from './';
 import { getPathSegments, translateSegment } from '../../utils/urls';
 
-// Mock de las funciones utilitarias
 jest.mock('../../utils/urls', () => ({
   getPathSegments: jest.fn(),
   translateSegment: jest.fn(),
 }));
 
+const renderBreadcrumbWithRouter = path => {
+  return render(
+    <MemoryRouter initialEntries={[path]}>
+      <Breadcrumb />
+    </MemoryRouter>,
+  );
+};
+
 describe('Breadcrumb', () => {
-  it('renders breadcrumb items correctly based on the pathname', () => {
+  beforeEach(() => {
     getPathSegments.mockReturnValue(['category', 'subcategory', 'product']);
     translateSegment.mockImplementation(segment => segment.toUpperCase());
-
-    const { getByText } = render(
-      <MemoryRouter initialEntries={['/category/subcategory/product']}>
-        <Breadcrumb />
-      </MemoryRouter>,
-    );
-
-    expect(getByText('CATEGORY')).toBeInTheDocument();
-    expect(getByText('SUBCATEGORY')).toBeInTheDocument();
-    expect(getByText('PRODUCT')).toBeInTheDocument();
   });
 
-  it('renders links with the correct paths', () => {
-    getPathSegments.mockReturnValue(['category', 'subcategory', 'product']);
-    translateSegment.mockImplementation(segment => segment.toUpperCase());
-
-    const { getByText } = render(
-      <MemoryRouter initialEntries={['/category/subcategory/product']}>
-        <Breadcrumb />
-      </MemoryRouter>,
+  it('renders breadcrumb items and links correctly based on the pathname', () => {
+    const { getByText } = renderBreadcrumbWithRouter(
+      '/category/subcategory/product',
     );
 
-    expect(getByText('CATEGORY').closest('a')).toHaveAttribute(
-      'href',
-      '/category',
-    );
-    expect(getByText('SUBCATEGORY').closest('a')).toHaveAttribute(
+    const categoryLink = getByText('CATEGORY');
+    const subcategoryLink = getByText('SUBCATEGORY');
+    const productLink = getByText('PRODUCT');
+
+    expect(categoryLink).toBeInTheDocument();
+    expect(subcategoryLink).toBeInTheDocument();
+    expect(productLink).toBeInTheDocument();
+
+    expect(categoryLink.closest('a')).toHaveAttribute('href', '/category');
+    expect(subcategoryLink.closest('a')).toHaveAttribute(
       'href',
       '/category/subcategory',
     );
-    expect(getByText('PRODUCT').closest('a')).toHaveAttribute(
+    expect(productLink.closest('a')).toHaveAttribute(
       'href',
       '/category/subcategory/product',
     );
