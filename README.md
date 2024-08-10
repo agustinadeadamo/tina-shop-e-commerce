@@ -4,16 +4,15 @@ This project is a fully functional e-commerce platform built with **React**, **T
 
 ## Table of Contents
 
-- [Features](#features)
+- [Core Features](#features)
 - [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [State Management](#state-management)
+- [Technical Choices](#technical-choices)
 - [Performance Optimizations](#performance-optimizations)
 - [Linting and Code Quality](#linting-and-code-quality)
-- [Design Decisions](#design-decisions)
 - [Future Enhancements](#future-enhancements)
+- [Deployment](#deployment)
 
-## Features
+## Core Features
 
 - **Home Page:** Features a visually appealing layout with animations and attractive components designed to engage users upon their first visit.
 - **Store Page:** Displays a list of 20 products organized into subcategories for an optimal browsing experience.
@@ -22,7 +21,12 @@ This project is a fully functional e-commerce platform built with **React**, **T
 - **Responsive Design:** Tailored for both desktop and mobile devices.
 - **State Management:** Efficient use of Context API and Redux for state management.
 - **Optimized Performance:** Lazy loading, code splitting, and other performance enhancements.
-- **Checkout Flow:** (Currently disabled as part of the demonstration)
+
+## Technical Integrations
+
+- **Authentication:** Secure user authentication integrated with Firebase. Future plans include adding support for third-party authentication providers like Google and Facebook.
+- **Backend Integration:** Integration with Fakestore API for product data and other backend functionalities.
+- **Database Integratio:** User-specific shopping cart data is stored and managed using Firebase Firestore, ensuring persistence across sessions.
 
 ## Technologies Used
 
@@ -35,27 +39,11 @@ This project is a fully functional e-commerce platform built with **React**, **T
 - **ESLint:** For maintaining consistent code quality.
 - **Babel:** JavaScript compiler for backward compatibility.
 
-## Project Structure
+## Technical Choices
 
-src/
-├── api/ # Contains services for authentication, Fakestore API, and Firebase integrations.
-├── components/ # Reusable components that are used across different parts of the application.
-├── constants/ # Holds static values and configuration constants used throughout the application, ensuring consistency and easier maintenance.
-├── context/ # Context API setup for managing localized state, such as user authentication and modal visibility.
-├── hooks/ # Custom hooks to encapsulate reusable logic across components.
-├── pages/ # Page components representing the different routes of the application.
-├── slices/ # Redux slices, which are a collection of reducer logic and actions for specific features, simplifying the management and organization of state.
-└── store.js # The centralized store that combines all slices, enabling the global state to be accessible across the application.
-├── actions/ # Contains action creators that dispatch actions to modify the Redux state, separated by feature.
-├── utils/ # Utility functions that perform common tasks and simplify code reuse.
-├── App.js # Main app component that sets up the application's routes and global providers.
-└── index.js # Entry point that initializes the app and renders it to the DOM.
-
-## Why did I Use Firebase for Authentication?
+### Why did I Use Firebase for Authentication?
 
 Firebase Authentication was chosen for this project due to its simplicity and robust feature set, which allows for quick integration of secure user authentication. It supports multiple authentication methods, including email/password and third-party providers like Google and Facebook, making it flexible for future expansions. Additionally, Firebase’s seamless integration with other Firebase services, such as Firestore, which aligns well with the needs of this e-commerce platform.
-
-## State Management
 
 ### Why did I use Context API for Login and Modals?
 
@@ -69,7 +57,7 @@ Redux is used specifically for managing the cart state due to its complexity and
 
 ## Performance Optimizations
 
-- **Minification of JavaScript and CSS:**
+- **Minification of JavaScript:**
 
   - The project uses `TerserPlugin` to minify JavaScript files, which helps reduce the bundle size by removing comments, whitespace, and unused code, as well as by dropping console logs in production builds.
 
@@ -105,11 +93,11 @@ Redux is used specifically for managing the cart state due to its complexity and
 
 ## Linting and Code Quality
 
-### Why Use ESLint?
+### Why did I use ESLint?
 
 ESLint is used to enforce coding standards and ensure that the codebase is maintainable and consistent across the app. It helps catch errors early and enforces best practices.
 
-### Why Use Babel?
+### Why did I use Babel?
 
 Babel is implemented to ensure that the latest JavaScript features are compatible with a wide range of browsers, providing backward compatibility and allowing us to use modern JavaScript syntax.
 
@@ -117,6 +105,7 @@ Babel is implemented to ensure that the latest JavaScript features are compatibl
 
 - Implementing the checkout flow with integrated payment processing
 - Further performance enhancements, such as server-side rendering (SSR) with Next.js.
+  Integrating additional authentication methods (e.g., Google, Facebook) using Firebase Authentication.
 
 ## Deployment
 
@@ -124,6 +113,6 @@ This project has been deployed on **Vercel**, taking advantage of its streamline
 
 You can view the live deployment at the following link:
 
-[Live Demo](https://your-vercel-app-link.vercel.app)
+[Live Demo](https://tina-shop.vercel.app/)
 
-Deploying on Vercel provides benefits like built-in performance optimizations, automatic scaling, and serverless functions, which make the application highly scalable and responsive. This setup ensures that the application is ready for production use and can handle varying levels of traffic with ease.
+Deploying on Vercel provides benefits like built-in performance optimizations, automatic scaling, and serverless functions, which make the application highly scalable and responsive. Additionally, Vercel allows for secure configuration of environment variables, ensuring that sensitive information such as API keys remains private and is not exposed in the public repository. This setup ensures that the application is ready for production use and can handle varying levels of traffic with ease.
