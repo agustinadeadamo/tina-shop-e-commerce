@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaShoppingCart, FaEye } from 'react-icons/fa';
 
-function ActionButtons({ handleAddToCart, handleViewMore, id }) {
+const ActionButtons = ({ handleAddToCart, handleViewMore, id }) => {
   const generalButtonClasses =
     'p-3 w-12 h-12 flex items-center justify-center  focus:outline-none';
 
@@ -30,7 +30,7 @@ function ActionButtons({ handleAddToCart, handleViewMore, id }) {
       </div>
     </div>
   );
-}
+};
 
 ActionButtons.propTypes = {
   handleAddToCart: PropTypes.func.isRequired,

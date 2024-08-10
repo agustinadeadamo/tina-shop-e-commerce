@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function PrimaryButton({
+const PrimaryButton = ({
   children,
   onClick,
   type = 'button',
   disabled = false,
   dataTestid = '',
-}) {
+}) => {
   const buttonClasses = `py-2 px-4 w-full transition-colors duration-300 text-lg text-sm lg:text-base
   ${
     disabled
@@ -26,7 +26,7 @@ function PrimaryButton({
       {children}
     </button>
   );
-}
+};
 
 PrimaryButton.propTypes = {
   children: PropTypes.node.isRequired,

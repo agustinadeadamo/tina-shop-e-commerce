@@ -5,7 +5,7 @@ import { PrimaryButton } from '../../../components/Buttons';
 import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
 import heroBannerAnimations from './animations';
 
-function HeroBanner() {
+const HeroBanner = () => {
   const navigate = useNavigate();
   const bannerRef = useRef(null);
   const womanRef = useRef(null);
@@ -73,6 +73,6 @@ function HeroBanner() {
       </div>
     </div>
   );
-}
+};
 
 export default HeroBanner;

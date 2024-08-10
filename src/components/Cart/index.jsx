@@ -10,7 +10,7 @@ import CartFooter from './CartFooter';
 import Overlay from './Overlay';
 import './style.scss';
 
-function CartSidebar({ isOpen, toggleCart }) {
+const CartSidebar = ({ isOpen, toggleCart }) => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const [error, setError] = useState(null);
@@ -108,7 +108,7 @@ function CartSidebar({ isOpen, toggleCart }) {
       </div>
     </>
   );
-}
+};
 
 CartSidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,

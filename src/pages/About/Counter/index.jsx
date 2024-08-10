@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useMemo } from 'react';
 import counterAnimation from './animations';
 import CounterItem from './CounterItem';
 
-function Counter() {
+const Counter = () => {
   const itemsSoldRef = useRef(null);
   const happyCustomersRef = useRef(null);
   const collectionsLaunchedRef = useRef(null);
@@ -31,6 +31,6 @@ function Counter() {
       </div>
     </section>
   );
-}
+};
 
 export default Counter;

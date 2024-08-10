@@ -4,11 +4,11 @@ import { Field } from 'react-final-form';
 import FieldInput from '../InputField';
 import Label from '../Label';
 
-function PasswordField({
+const PasswordField = ({
   name = 'password',
   placeholder = 'Enter your password',
   label = 'Password',
-}) {
+}) => {
   const validatePassword = (value) => {
     if (!value) {
       return 'Required';
@@ -46,7 +46,7 @@ function PasswordField({
       )}
     </Field>
   );
-}
+};
 
 PasswordField.propTypes = {
   name: PropTypes.string,

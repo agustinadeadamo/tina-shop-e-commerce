@@ -3,7 +3,7 @@ import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
 import DiscountProductCard from './DiscountProductCard';
 import { cardsData, animationsData } from './cardData';
 
-function DiscountProducts() {
+const DiscountProducts = () => {
   return (
     <ResponsiveContainer>
       <div className="w-full pt-20">
@@ -19,6 +19,6 @@ function DiscountProducts() {
       </div>
     </ResponsiveContainer>
   );
-}
+};
 
 export default DiscountProducts;

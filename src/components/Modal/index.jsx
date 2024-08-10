@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaTimes } from 'react-icons/fa';
 
-function Modal({ isOpen, onClose, children, width = 'md:max-w-screen-md' }) {
+const Modal = ({ isOpen, onClose, children, width = 'md:max-w-screen-md' }) => {
   if (!isOpen) {
     return null;
   }
@@ -33,7 +33,7 @@ function Modal({ isOpen, onClose, children, width = 'md:max-w-screen-md' }) {
       </div>
     </div>
   );
-}
+};
 
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,

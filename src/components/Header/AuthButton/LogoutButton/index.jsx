@@ -6,7 +6,7 @@ import { auth } from '../../../../../firebase-config';
 import { clearCart } from '../../../../actions/cart';
 import { useError } from '../../../../contexts/GeneralErrorContext';
 
-function LogoutButton() {
+const LogoutButton = () => {
   const dispatch = useDispatch();
   const { showError } = useError();
 
@@ -21,6 +21,6 @@ function LogoutButton() {
   };
 
   return <SecondaryButton onClick={logout}>Logout</SecondaryButton>;
-}
+};
 
 export default LogoutButton;

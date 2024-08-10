@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { FaTrashAlt } from 'react-icons/fa';
 import QuantitySelector from '../../QuantitySelector';
 
-function CartItem({
+const CartItem = ({
   item,
   handleDecreaseQuantity,
   handleRemoveItem,
   handleIncreaseQuantity,
   disabledButtons,
-}) {
+}) => {
   const totalItemPrice = useMemo(
     () => item.price * item.quantity,
     [item.price, item.quantity]
@@ -74,7 +74,7 @@ function CartItem({
       </div>
     </li>
   );
-}
+};
 
 CartItem.propTypes = {
   item: PropTypes.shape({

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function ProductImage({ image, title }) {
+const ProductImage = ({ image, title }) => {
   return (
     <div className="relative lg:col-span-1">
       <div className="sticky top-4">
@@ -13,7 +13,7 @@ function ProductImage({ image, title }) {
       </div>
     </div>
   );
-}
+};
 
 ProductImage.propTypes = {
   image: PropTypes.string.isRequired,

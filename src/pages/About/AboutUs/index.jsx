@@ -1,7 +1,7 @@
 import React from 'react';
 import ResponsiveMainContainer from '../../../components/ResponsiveMainContainer';
 
-function AboutUs() {
+const AboutUs = () => {
   return (
     <section className=" px-4 pt-16">
       <ResponsiveMainContainer>
@@ -38,6 +38,6 @@ function AboutUs() {
       </ResponsiveMainContainer>
     </section>
   );
-}
+};
 
 export default AboutUs;

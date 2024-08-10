@@ -7,7 +7,7 @@ import ProductCard from '../../../components/ProductCard';
  * Component that displays a list of products.
  * @param {Array} productsToShow - List of products to display.
  */
-function ProductsList({ productsToShow }) {
+const ProductsList = ({ productsToShow }) => {
   const { handleAddSingleItemToCart, handleViewMore } = useProductCardActions();
   if (!productsToShow) return null;
 
@@ -23,7 +23,7 @@ function ProductsList({ productsToShow }) {
       ))}
     </div>
   );
-}
+};
 
 ProductsList.propTypes = {
   productsToShow: PropTypes.arrayOf(

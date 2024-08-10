@@ -11,7 +11,7 @@ import { useLazyLoad } from '../../hooks';
  * @param {Function} handleAddToCart - Function to handle adding the product to the cart.
  * @param {Function} handleViewMore - Function to handle viewing more details of the product.
  */
-function ProductCard({ product, handleAddToCart, handleViewMore }) {
+const ProductCard = ({ product, handleAddToCart, handleViewMore }) => {
   const { title, image, price, rating, id } = product;
   const [ref, isVisible] = useLazyLoad({ threshold: 0.1 });
 
@@ -36,7 +36,7 @@ function ProductCard({ product, handleAddToCart, handleViewMore }) {
       </div>
     </div>
   );
-}
+};
 
 ProductCard.propTypes = {
   product: PropTypes.shape({

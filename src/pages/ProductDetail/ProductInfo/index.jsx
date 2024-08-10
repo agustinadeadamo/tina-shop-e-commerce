@@ -7,14 +7,14 @@ import ReviewsPoints from '../../../components/ReviewsPoints';
 import ColorSection from '../ColorSection';
 import productDetailData from './productDetailData';
 
-function ProductInfo({
+const ProductInfo = ({
   product,
   quantity,
   increaseQuantity,
   decreaseQuantity,
   handleAddToCart,
   disabledButtons = false,
-}) {
+}) => {
   return (
     <div className="lg:col-span-1 overflow-y-auto max-h-full">
       {/* Product Title */}
@@ -42,7 +42,7 @@ function ProductInfo({
       <ReviewsPoints {...product.rating} />
     </div>
   );
-}
+};
 
 ProductInfo.propTypes = {
   product: PropTypes.shape({

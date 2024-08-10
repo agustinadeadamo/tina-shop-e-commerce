@@ -9,7 +9,7 @@ export const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 // AuthProvider component to manage authentication state and provide it to children components
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
 
   const login = async (email, password) => {
@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
-}
+};
 
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,

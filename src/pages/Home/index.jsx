@@ -6,7 +6,7 @@ import ReviewSection from './Reviews';
 import MidPageBanner from './MidPageBanner';
 import TrendingProducts from './TrendingProducts';
 
-function Home() {
+const Home = () => {
   return (
     <>
       <HeroBanner />
@@ -21,6 +21,6 @@ function Home() {
       <ReviewSection />
     </>
   );
-}
+};
 
 export default Home;

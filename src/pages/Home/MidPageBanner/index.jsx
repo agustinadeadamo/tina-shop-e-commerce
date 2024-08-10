@@ -3,7 +3,7 @@ import WomanImage from '../../../images/banner-promotion.png';
 import { PrimaryButton } from '../../../components/Buttons';
 import bannerAnimation from './animations';
 
-function MidPageBanner() {
+const MidPageBanner = () => {
   const bannerRef = useRef(null);
   const womanRef = useRef(null);
   const textRef = useRef(null);
@@ -43,6 +43,6 @@ function MidPageBanner() {
       </div>
     </div>
   );
-}
+};
 
 export default MidPageBanner;

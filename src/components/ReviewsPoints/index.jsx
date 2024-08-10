@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RatingStars from '../RatingStars';
 
-function ReviewsPoints({ rate, count }) {
+const ReviewsPoints = ({ rate, count }) => {
   const roundedRate = Math.round(rate);
 
   return (
@@ -14,7 +14,7 @@ function ReviewsPoints({ rate, count }) {
       <p className="text-xs text-gray-600">{count} reviews</p>
     </div>
   );
-}
+};
 
 ReviewsPoints.propTypes = {
   rate: PropTypes.number.isRequired,

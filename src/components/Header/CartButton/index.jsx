@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { FaShoppingCart } from 'react-icons/fa';
 import CartSidebar from '../../Cart';
 
-function CartButton() {
+const CartButton = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
@@ -33,6 +33,6 @@ function CartButton() {
       <CartSidebar isOpen={isCartOpen} toggleCart={toggleCart} />
     </>
   );
-}
+};
 
 export default CartButton;

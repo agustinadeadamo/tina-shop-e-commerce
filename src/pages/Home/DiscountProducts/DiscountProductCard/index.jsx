@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { PrimaryButton } from '../../../../components/Buttons';
 import { animateOnIntersection } from '../../../../utils/animations';
 
-function DiscountProductCard({
+const DiscountProductCard = ({
   title,
   subtitle,
   buttonCopy,
@@ -14,7 +14,7 @@ function DiscountProductCard({
   animation,
   position,
   url,
-}) {
+}) => {
   const cardRef = useRef(null);
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ function DiscountProductCard({
       </div>
     </div>
   );
-}
+};
 
 DiscountProductCard.propTypes = {
   title: PropTypes.string,

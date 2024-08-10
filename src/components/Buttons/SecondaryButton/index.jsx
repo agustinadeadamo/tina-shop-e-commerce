@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SecondaryButton({ children, onClick, type, disabled = false }) {
+const SecondaryButton = ({ children, onClick, type, disabled = false }) => {
   const buttonClasses = `py-2 px-4 text-primary w-full transition-colors duration-300
   ${
     disabled
@@ -21,7 +21,7 @@ function SecondaryButton({ children, onClick, type, disabled = false }) {
       {children}
     </button>
   );
-}
+};
 
 SecondaryButton.propTypes = {
   children: PropTypes.node.isRequired,

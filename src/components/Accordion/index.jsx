@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import AccordionItem from './AccordionItem';
 
-function Accordion({ accordionItems }) {
+const Accordion = ({ accordionItems }) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAccordion = useCallback(
@@ -25,7 +25,7 @@ function Accordion({ accordionItems }) {
       ))}
     </div>
   );
-}
+};
 
 Accordion.propTypes = {
   accordionItems: PropTypes.arrayOf(

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
-function RatingStars({ rate, size = '' }) {
+const RatingStars = ({ rate, size = '' }) => {
   const roundedRate = Math.round(rate);
 
   return (
@@ -19,7 +19,7 @@ function RatingStars({ rate, size = '' }) {
       })}
     </div>
   );
-}
+};
 
 RatingStars.propTypes = {
   rate: PropTypes.number.isRequired,

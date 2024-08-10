@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Overlay({ isOpen, toggleCart }) {
+const Overlay = ({ isOpen, toggleCart }) => {
   const handleKeyDown = (e) => {
     const keys = ['Escape', 'Enter', ' '];
     if (keys.includes(e.key)) {
@@ -19,7 +19,7 @@ function Overlay({ isOpen, toggleCart }) {
       aria-label="Close cart overlay"
     />
   );
-}
+};
 
 Overlay.propTypes = {
   isOpen: PropTypes.bool.isRequired,

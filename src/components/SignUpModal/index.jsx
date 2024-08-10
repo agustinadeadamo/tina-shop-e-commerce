@@ -8,7 +8,7 @@ import { SecondaryButton, PrimaryButton } from '../Buttons';
 import Modal from '../Modal';
 import { EmailField, PasswordField } from '../Form';
 
-function SignupModal() {
+const SignupModal = () => {
   const { isSignupModalOpen, closeSignupModal, openLoginModal } = useModal();
   const [signupError, setSignupError] = useState(null);
 
@@ -96,6 +96,6 @@ function SignupModal() {
       </div>
     </Modal>
   );
-}
+};
 
 export default SignupModal;

@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function InputField({ id, type, placeholder, input, meta, dataTestid = '' }) {
+const InputField = ({
+  id,
+  type,
+  placeholder,
+  input,
+  meta,
+  dataTestid = '',
+}) => {
   const inputClasses = `p-2 border-b-2 text-sm ${
     meta.error && meta.touched
       ? 'border-red-500 focus:border-red-500'
@@ -23,7 +30,7 @@ function InputField({ id, type, placeholder, input, meta, dataTestid = '' }) {
       )}
     </div>
   );
-}
+};
 
 InputField.propTypes = {
   id: PropTypes.string.isRequired,

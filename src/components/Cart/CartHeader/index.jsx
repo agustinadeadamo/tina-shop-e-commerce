@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaTimes } from 'react-icons/fa';
 
-function CartHeader({ totalItems, toggleCart }) {
+const CartHeader = ({ totalItems, toggleCart }) => {
   return (
     <div className="bg-white px-4 py-4 flex justify-between items-center relative">
       <span className="text-xl font-semibold text-black mb-2">
@@ -18,7 +18,7 @@ function CartHeader({ totalItems, toggleCart }) {
       </button>
     </div>
   );
-}
+};
 
 CartHeader.propTypes = {
   totalItems: PropTypes.number.isRequired,
