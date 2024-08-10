@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
-import PropTypes from "prop-types";
-import ResponsiveContainer from "../ResponsiveMainContainer";
-import ProductCard from "../ProductCard";
-import { useProductCardActions } from "../../hooks";
-import trendingProductsAnimation from "./animations";
+import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import ResponsiveContainer from '../ResponsiveMainContainer';
+import ProductCard from '../ProductCard';
+import { useProductCardActions } from '../../hooks';
+import trendingProductsAnimation from './animations';
 
 function TrendingProducts({ products }) {
   const containerRef = useRef(null);
@@ -48,7 +48,7 @@ TrendingProducts.propTypes = {
       price: PropTypes.number.isRequired,
       description: PropTypes.string.isRequired,
       imageUrl: PropTypes.string,
-    }),
+    })
   ).isRequired,
 };
 

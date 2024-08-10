@@ -6,7 +6,7 @@ import possibleColors from './colorsData';
 describe('ColorSection', () => {
   it('renders the correct number of color options', () => {
     render(<ColorSection />);
-    possibleColors.forEach(color => {
+    possibleColors.forEach((color) => {
       expect(screen.getByTestId(`color-option-${color}`)).toBeInTheDocument();
     });
   });

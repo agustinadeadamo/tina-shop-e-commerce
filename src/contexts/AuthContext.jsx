@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useMemo } from "react";
-import PropTypes from "prop-types";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth } from "../../firebase-config";
+import React, { createContext, useContext, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { auth } from '../../firebase-config';
 
 export const AuthContext = createContext();
 
@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
       login,
       logout,
     }),
-    [user, loading, error],
+    [user, loading, error]
   );
 
   // Provide the authentication context to children components

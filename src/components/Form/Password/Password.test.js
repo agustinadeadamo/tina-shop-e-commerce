@@ -10,7 +10,7 @@ describe('PasswordField', () => {
         onSubmit={() => {}}
         initialValues={initialValues}
         render={() => <PasswordField />}
-      />,
+      />
     );
 
   it('renders the password field with default props', () => {
@@ -27,7 +27,7 @@ describe('PasswordField', () => {
       passwordInput.blur();
     });
     expect(await screen.findByTestId('password-error')).toHaveTextContent(
-      'Required',
+      'Required'
     );
   });
 });

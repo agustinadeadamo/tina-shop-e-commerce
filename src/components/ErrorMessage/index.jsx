@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ErrorSvg from "../../images/error-message.svg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ErrorSvg from '../../images/error-message.svg';
 
 function ErrorMessage({ message }) {
   return (

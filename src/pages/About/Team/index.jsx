@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
-import teamMembers from "./teamMembers";
-import ResponsiveMainContainer from "../../../components/ResponsiveMainContainer";
-import teamMembersAnimations from "./animations";
-import TeamMemberCard from "./TeamMemberCard";
+import React, { useRef, useEffect } from 'react';
+import teamMembers from './teamMembers';
+import ResponsiveMainContainer from '../../../components/ResponsiveMainContainer';
+import teamMembersAnimations from './animations';
+import TeamMemberCard from './TeamMemberCard';
 
 function Team() {
   const containerRef = useRef(null);

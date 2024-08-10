@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useProductCardActions } from "../../../hooks";
-import ProductCard from "../../../components/ProductCard";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useProductCardActions } from '../../../hooks';
+import ProductCard from '../../../components/ProductCard';
 
 /**
  * Component that displays a list of products.
@@ -33,7 +33,7 @@ ProductsList.propTypes = {
       price: PropTypes.number.isRequired,
       description: PropTypes.string.isRequired,
       imageUrl: PropTypes.string,
-    }),
+    })
   ).isRequired,
 };
 

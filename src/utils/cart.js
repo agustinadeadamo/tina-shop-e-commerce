@@ -43,8 +43,8 @@ export const modifyCartItems = (existingItems, item, quantityToChange) => {
       .map((existingItem) =>
         updateItemQuantity(
           existingItem,
-          existingItem.id === item.id ? quantityToChange : 0,
-        ),
+          existingItem.id === item.id ? quantityToChange : 0
+        )
       )
       .filter((existingItem) => existingItem !== null); // Remove items with null quantity
   }
@@ -61,7 +61,7 @@ export const modifyCartItems = (existingItems, item, quantityToChange) => {
  * @returns {Object} - Object containing the array of cart items and the total quantity.
  */
 export const loadInitialCartItems = () => {
-  const savedCartItems = localStorage.getItem("cartItems");
+  const savedCartItems = localStorage.getItem('cartItems');
   if (savedCartItems) {
     try {
       const items = JSON.parse(savedCartItems);

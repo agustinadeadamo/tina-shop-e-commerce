@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import WomanImage from "../../../images/banner-promotion.png";
-import { PrimaryButton } from "../../../components/Buttons";
-import bannerAnimation from "./animations";
+import React, { useRef, useEffect } from 'react';
+import WomanImage from '../../../images/banner-promotion.png';
+import { PrimaryButton } from '../../../components/Buttons';
+import bannerAnimation from './animations';
 
 function MidPageBanner() {
   const bannerRef = useRef(null);
@@ -38,7 +38,7 @@ function MidPageBanner() {
           src={WomanImage}
           className="w-[400px] md:w-[600px] object-contain opacity-0 transform translate-x-full relative z-50"
           alt="Chica mirando a la derecha"
-          style={{ visibility: "hidden", opacity: 0 }}
+          style={{ visibility: 'hidden', opacity: 0 }}
         />
       </div>
     </div>

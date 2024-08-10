@@ -1,7 +1,7 @@
-import React from "react";
-import ResponsiveContainer from "../../../components/ResponsiveMainContainer";
-import DiscountProductCard from "./DiscountProductCard";
-import { cardsData, animationsData } from "./cardData";
+import React from 'react';
+import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
+import DiscountProductCard from './DiscountProductCard';
+import { cardsData, animationsData } from './cardData';
 
 function DiscountProducts() {
   return (

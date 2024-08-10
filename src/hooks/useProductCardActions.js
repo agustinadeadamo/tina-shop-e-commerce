@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateCart } from "../actions/cart";
-import errorMesajes from "../constants/errorMesajes";
-import { useError } from "../contexts/GeneralErrorContext";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updateCart } from '../actions/cart';
+import errorMesajes from '../constants/errorMesajes';
+import { useError } from '../contexts/GeneralErrorContext';
 
 /**
  * Custom hook that provides actions for product cards, including adding a single item to the cart and navigating to the product detail page.

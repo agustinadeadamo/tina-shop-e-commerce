@@ -9,11 +9,11 @@ describe('CategoryNav', () => {
     render(
       <MemoryRouter>
         <CategoryNav />
-      </MemoryRouter>,
+      </MemoryRouter>
     );
 
     // Verifica que todas las categorías están presentes
-    Object.values(CATEGORY_MAP).forEach(displayCategory => {
+    Object.values(CATEGORY_MAP).forEach((displayCategory) => {
       const categoryText =
         displayCategory.charAt(0).toUpperCase() + displayCategory.slice(1);
       expect(screen.getByText(categoryText)).toBeInTheDocument();
@@ -24,7 +24,7 @@ describe('CategoryNav', () => {
     render(
       <MemoryRouter>
         <CategoryNav />
-      </MemoryRouter>,
+      </MemoryRouter>
     );
 
     // Verifica que cada enlace apunta a la URL correcta
@@ -34,7 +34,7 @@ describe('CategoryNav', () => {
       const linkElement = screen.getByText(categoryText);
       expect(linkElement.closest('a')).toHaveAttribute(
         'href',
-        `/store/${urlCategory}`,
+        `/store/${urlCategory}`
       );
     });
   });

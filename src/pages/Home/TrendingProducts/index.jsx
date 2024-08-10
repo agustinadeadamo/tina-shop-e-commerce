@@ -1,6 +1,6 @@
-import React from "react";
-import { useProducts } from "../../../hooks";
-import TrendingProducts from "../../../components/TrendingProducts";
+import React from 'react';
+import { useProducts } from '../../../hooks';
+import TrendingProducts from '../../../components/TrendingProducts';
 
 function TrendingProductsSection() {
   const { products } = useProducts(4);

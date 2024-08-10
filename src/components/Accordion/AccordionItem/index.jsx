@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
-import PropTypes from "prop-types";
-import Icon from "../Icon";
-import animateAccordion from "../animations";
-import "./style.scss";
+import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Icon from '../Icon';
+import animateAccordion from '../animations';
+import './style.scss';
 
 function AccordionItem({ section, index, isOpen, onClick }) {
   const itemRef = useRef(null);
@@ -27,7 +27,7 @@ function AccordionItem({ section, index, isOpen, onClick }) {
       <div
         ref={itemRef}
         className={`overflow-hidden transition-height duration-300 ${
-          isOpen ? "h-auto" : "h-0"
+          isOpen ? 'h-auto' : 'h-0'
         }`}
         data-testid={`accordion-content-container-${index}`}
       >

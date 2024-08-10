@@ -53,7 +53,7 @@ const mockStore = configureStore([]);
  */
 export const renderWithFirebaseMocks = (
   content,
-  { initialState = {}, store = mockStore(initialState), ...renderOptions } = {},
+  { initialState = {}, store = mockStore(initialState), ...renderOptions } = {}
 ) => {
   const Wrapper = ({ children }) => (
     <Provider store={store}>{children}</Provider>

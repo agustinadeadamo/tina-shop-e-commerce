@@ -20,29 +20,29 @@ describe('ReviewCard', () => {
 
     // Verifica que la cantidad correcta de estrellas se renderiza
     const stars = screen.getAllByText(
-      (content, element) => element.tagName.toLowerCase() === 'svg',
+      (content, element) => element.tagName.toLowerCase() === 'svg'
     );
     expect(stars).toHaveLength(mockReview.rating);
   });
 
   it('renders the correct number of stars based on the rating', () => {
     const { rerender } = render(
-      <ReviewCard review={{ ...mockReview, rating: 3 }} />,
+      <ReviewCard review={{ ...mockReview, rating: 3 }} />
     );
 
     // Verifica que la cantidad correcta de estrellas se renderiza con un rating de 3
     expect(
       screen.getAllByText(
-        (content, element) => element.tagName.toLowerCase() === 'svg',
-      ),
+        (content, element) => element.tagName.toLowerCase() === 'svg'
+      )
     ).toHaveLength(3);
 
     // Cambia el rating a 5 y verifica que se renderizan 5 estrellas
     rerender(<ReviewCard review={{ ...mockReview, rating: 5 }} />);
     expect(
       screen.getAllByText(
-        (content, element) => element.tagName.toLowerCase() === 'svg',
-      ),
+        (content, element) => element.tagName.toLowerCase() === 'svg'
+      )
     ).toHaveLength(5);
   });
 });

@@ -1,10 +1,10 @@
-import React from "react";
-import HeroBanner from "./HeroBanner";
-import InfoCards from "./InfoCard";
-import DiscountProducts from "./DiscountProducts";
-import ReviewSection from "./Reviews";
-import MidPageBanner from "./MidPageBanner";
-import TrendingProducts from "./TrendingProducts";
+import React from 'react';
+import HeroBanner from './HeroBanner';
+import InfoCards from './InfoCard';
+import DiscountProducts from './DiscountProducts';
+import ReviewSection from './Reviews';
+import MidPageBanner from './MidPageBanner';
+import TrendingProducts from './TrendingProducts';
 
 function Home() {
   return (

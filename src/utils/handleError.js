@@ -6,7 +6,7 @@
  * @param {string} [customMessage='API call failed:'] - A custom message to prepend to the error message (optional).
  * @throws Will rethrow the error after logging it.
  */
-const handleError = (error, customMessage = "API call failed:") => {
+const handleError = (error, customMessage = 'API call failed:') => {
   console.error(`${customMessage} ${error.message}`);
   throw error;
 };

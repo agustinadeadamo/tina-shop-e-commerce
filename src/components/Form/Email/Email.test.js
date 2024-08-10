@@ -10,7 +10,7 @@ describe('EmailField', () => {
         onSubmit={() => {}}
         initialValues={initialValues}
         render={() => <EmailField />}
-      />,
+      />
     );
 
   it('renders the email field with correct label and placeholder', () => {
@@ -18,7 +18,7 @@ describe('EmailField', () => {
     expect(screen.getByTestId('email-field-container')).toBeInTheDocument();
     expect(screen.getByTestId('email-input')).toHaveAttribute(
       'placeholder',
-      'Enter your email',
+      'Enter your email'
     );
   });
 
@@ -30,7 +30,7 @@ describe('EmailField', () => {
       emailInput.blur();
     });
     expect(await screen.findByTestId('email-error-message')).toHaveTextContent(
-      'Required',
+      'Required'
     );
   });
 });
