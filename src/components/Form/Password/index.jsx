@@ -23,7 +23,7 @@ function PasswordField({
     <Field name={name} validate={validatePassword}>
       {({ input, meta }) => (
         <div className="mb-4">
-          <Label htmlFor={name} data-testid="password-label">
+          <Label htmlFor={name} dataTestid="password-label">
             {label}
           </Label>
           <FieldInput
@@ -32,7 +32,7 @@ function PasswordField({
             placeholder={placeholder}
             input={input}
             meta={meta}
-            data-testid="password-input"
+            dataTestid="password-input"
           />
           {meta.error && meta.touched && (
             <p

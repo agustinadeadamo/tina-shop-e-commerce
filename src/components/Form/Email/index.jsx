@@ -1,29 +1,29 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Field } from "react-final-form";
-import validator from "validator";
-import FieldInput from "../InputField";
-import Label from "../Label";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field } from 'react-final-form';
+import validator from 'validator';
+import FieldInput from '../InputField';
+import Label from '../Label';
 
 function EmailField({
-  name = "email",
-  placeholder = "Enter your email",
-  label = "Email",
+  name = 'email',
+  placeholder = 'Enter your email',
+  label = 'Email',
 }) {
-  const validateEmail = (value) => {
+  const validateEmail = value => {
     if (!value) {
-      return "Required";
+      return 'Required';
     }
     if (!validator.isEmail(value)) {
-      return "Invalid email address";
+      return 'Invalid email address';
     }
     return undefined;
   };
 
   return (
-    <Field name="email" validate={validateEmail}>
+    <Field name={name} validate={validateEmail}>
       {({ input, meta }) => (
-        <div className="mb-4">
+        <div className="mb-4" data-testid="email-field-container">
           <Label htmlFor={name} required>
             {label}
           </Label>
@@ -33,7 +33,16 @@ function EmailField({
             placeholder={placeholder}
             input={input}
             meta={meta}
+            dataTestid="email-input"
           />
+          {meta.error && meta.touched && (
+            <p
+              data-testid="email-error-message"
+              className="text-red-500 text-xs mt-1"
+            >
+              {meta.error}
+            </p>
+          )}
         </div>
       )}
     </Field>

@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function InputField({ id, type, placeholder, input, meta }) {
+function InputField({ id, type, placeholder, input, meta, dataTestid = '' }) {
   const inputClasses = `p-2 border-b-2 text-sm ${
     meta.error && meta.touched
-      ? "border-red-500 focus:border-red-500"
-      : "border-gray-300 focus:border-primary"
+      ? 'border-red-500 focus:border-red-500'
+      : 'border-gray-300 focus:border-primary'
   } w-full outline-none focus:ring-0`;
 
   return (
@@ -16,6 +16,7 @@ function InputField({ id, type, placeholder, input, meta }) {
         type={type}
         placeholder={placeholder}
         className={inputClasses}
+        data-testid={dataTestid}
       />
       {meta.error && meta.touched && (
         <p className="text-red-500 text-xs mt-1">{meta.error}</p>
@@ -30,6 +31,7 @@ InputField.propTypes = {
   placeholder: PropTypes.string,
   input: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired,
+  dataTestid: PropTypes.string,
 };
 
 export default InputField;

@@ -26,7 +26,7 @@ function CartFooter({ subtotal, loading }) {
           ${subtotal.toFixed(2)}
         </span>
       </div>
-      <PrimaryButton data-testid="checkout-button" disabled={loading}>
+      <PrimaryButton dataTestid="checkout-button" disabled={loading}>
         Proceed to checkout
       </PrimaryButton>
     </div>

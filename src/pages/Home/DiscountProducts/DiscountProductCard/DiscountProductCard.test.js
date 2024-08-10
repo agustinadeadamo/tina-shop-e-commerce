@@ -5,12 +5,14 @@ import DiscountProductCard from './';
 import * as animations from '../../../../utils/animations';
 import { useNavigate } from 'react-router-dom';
 
+// Mock animations and navigation to avoid real behaviors during tests
 jest.mock('../../../../utils/animations');
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn(),
 }));
 
+// Test data that you will use in all the tests
 const mockProps = {
   title: 'Special Offer',
   subtitle: 'Limited Time Only',
@@ -23,24 +25,22 @@ const mockProps = {
   url: '/special-offer',
 };
 
+const renderWithRouter = (content, { route = '/' } = {}) => {
+  return render(
+    <MemoryRouter initialEntries={[route]}>{content}</MemoryRouter>,
+  );
+};
+
 describe('DiscountProductCard', () => {
-  it('renders the title, subtitle, and button text correctly', () => {
-    render(
-      <MemoryRouter>
-        <DiscountProductCard {...mockProps} />
-      </MemoryRouter>,
-    );
+  it('correctly displays the title, subtitle, and button text', () => {
+    renderWithRouter(<DiscountProductCard {...mockProps} />);
     expect(screen.getByText(mockProps.title)).toBeInTheDocument();
     expect(screen.getByText(mockProps.subtitle)).toBeInTheDocument();
     expect(screen.getByText(mockProps.buttonCopy)).toBeInTheDocument();
   });
 
   it('executes the animation on intersection', () => {
-    render(
-      <MemoryRouter>
-        <DiscountProductCard {...mockProps} />
-      </MemoryRouter>,
-    );
+    renderWithRouter(<DiscountProductCard {...mockProps} />);
     expect(animations.animateOnIntersection).toHaveBeenCalledWith(
       expect.anything(),
       mockProps.animation,
@@ -50,11 +50,7 @@ describe('DiscountProductCard', () => {
   it('navigates to the correct URL when the button is clicked', () => {
     const mockNavigate = jest.fn();
     useNavigate.mockReturnValue(mockNavigate);
-    render(
-      <MemoryRouter>
-        <DiscountProductCard {...mockProps} />
-      </MemoryRouter>,
-    );
+    renderWithRouter(<DiscountProductCard {...mockProps} />);
     fireEvent.click(screen.getByText(mockProps.buttonCopy));
     expect(mockNavigate).toHaveBeenCalledWith(mockProps.url);
   });

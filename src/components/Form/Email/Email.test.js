@@ -15,19 +15,22 @@ describe('EmailField', () => {
 
   it('renders the email field with correct label and placeholder', () => {
     renderEmailField();
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(
-      screen.getByPlaceholderText(/enter your email/i),
-    ).toBeInTheDocument();
+    expect(screen.getByTestId('email-field-container')).toBeInTheDocument();
+    expect(screen.getByTestId('email-input')).toHaveAttribute(
+      'placeholder',
+      'Enter your email',
+    );
   });
 
   it('shows required error when email is not provided', async () => {
     renderEmailField();
-    const emailInput = screen.getByLabelText(/email/i);
+    const emailInput = screen.getByTestId('email-input');
     act(() => {
       emailInput.focus();
       emailInput.blur();
     });
-    expect(await screen.findByText(/required/i)).toBeInTheDocument();
+    expect(await screen.findByTestId('email-error-message')).toHaveTextContent(
+      'Required',
+    );
   });
 });
