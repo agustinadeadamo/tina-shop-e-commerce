@@ -18,10 +18,14 @@ function CartButton() {
         onClick={toggleCart}
         className="relative text-gray-700 mr-4"
         aria-label="Toggle cart"
+        data-testid="toggle-cart-button"
       >
         <FaShoppingCart className="h-5 w-5" />
         {totalQuantity > 0 && (
-          <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-secondary rounded-full transform translate-x-1/2 -translate-y-1/2">
+          <span
+            className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-secondary rounded-full transform translate-x-1/2 -translate-y-1/2"
+            data-testid="cart-quantity-badge"
+          >
             {totalQuantity}
           </span>
         )}

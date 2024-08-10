@@ -21,9 +21,9 @@ function EmailField({
   };
 
   return (
-    <Field name="email" validate={validateEmail}>
+    <Field name={name} validate={validateEmail}>
       {({ input, meta }) => (
-        <div className="mb-4">
+        <div className="mb-4" data-testid="email-field-container">
           <Label htmlFor={name} required>
             {label}
           </Label>
@@ -33,7 +33,16 @@ function EmailField({
             placeholder={placeholder}
             input={input}
             meta={meta}
+            dataTestid="email-input"
           />
+          {meta.error && meta.touched && (
+            <p
+              data-testid="email-error-message"
+              className="text-red-500 text-xs mt-1"
+            >
+              {meta.error}
+            </p>
+          )}
         </div>
       )}
     </Field>

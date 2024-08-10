@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function ColorOption({ color, isSelected, onSelect }) {
+function ColorOption({ color, isSelected, onSelect, dataTestid = "" }) {
   const handleKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
       onSelect();
@@ -23,6 +23,7 @@ function ColorOption({ color, isSelected, onSelect }) {
       role="button"
       tabIndex={0}
       onKeyDown={handleKeyDown}
+      data-testid={dataTestid}
     />
   );
 }
@@ -31,6 +32,7 @@ ColorOption.propTypes = {
   color: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired,
   onSelect: PropTypes.func.isRequired,
+  dataTestid: PropTypes.string,
 };
 
 export default ColorOption;

@@ -23,14 +23,25 @@ function PasswordField({
     <Field name={name} validate={validatePassword}>
       {({ input, meta }) => (
         <div className="mb-4">
-          <Label htmlFor={name}>{label}</Label>
+          <Label htmlFor={name} dataTestid="password-label">
+            {label}
+          </Label>
           <FieldInput
             id={name}
             type="password"
             placeholder={placeholder}
             input={input}
             meta={meta}
+            dataTestid="password-input"
           />
+          {meta.error && meta.touched && (
+            <p
+              className="text-red-500 text-xs mt-1"
+              data-testid="password-error"
+            >
+              {meta.error}
+            </p>
+          )}
         </div>
       )}
     </Field>

@@ -6,6 +6,7 @@ function PrimaryButton({
   onClick,
   type = "button",
   disabled = false,
+  dataTestid = "",
 }) {
   const buttonClasses = `py-2 px-4 w-full transition-colors duration-300 text-lg text-sm lg:text-base
   ${
@@ -20,6 +21,7 @@ function PrimaryButton({
       onClick={onClick}
       className={buttonClasses}
       disabled={disabled}
+      data-testid={dataTestid}
     >
       {children}
     </button>
@@ -31,6 +33,7 @@ PrimaryButton.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   type: PropTypes.oneOf(["button", "submit", "reset"]),
+  dataTestid: PropTypes.string,
 };
 
 export default PrimaryButton;

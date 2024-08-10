@@ -9,7 +9,13 @@ function RatingStars({ rate, size = "" }) {
     <div className="flex items-center mt-2 mb-2">
       {Array.from({ length: 5 }, (_, index) => {
         const Icon = index < roundedRate ? FaStar : FaRegStar;
-        return <Icon key={index} className={`text-secondary ${size}`} />;
+        return (
+          <Icon
+            key={index}
+            className={`text-secondary ${size}`}
+            data-testid={`star-${index + 1}`}
+          />
+        );
       })}
     </div>
   );

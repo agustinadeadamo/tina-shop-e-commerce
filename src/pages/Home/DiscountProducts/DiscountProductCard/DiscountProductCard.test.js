@@ -1,10 +1,15 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import DiscountProductCard from './DiscountProductCard';
+import DiscountProductCard from './';
 import * as animations from '../../../../utils/animations';
+import { useNavigate } from 'react-router-dom';
 
 jest.mock('../../../../utils/animations');
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: jest.fn(),
+}));
 
 const mockProps = {
   title: 'Special Offer',
@@ -18,45 +23,33 @@ const mockProps = {
   url: '/special-offer',
 };
 
-describe('DiscountProductCard', () => {
-  it('renders the title, subtitle, and button text correctly', () => {
-    render(
-      <MemoryRouter>
-        <DiscountProductCard {...mockProps} />
-      </MemoryRouter>,
-    );
+const renderWithRouter = (content, { route = '/' } = {}) => {
+  return render(
+    <MemoryRouter initialEntries={[route]}>{content}</MemoryRouter>
+  );
+};
 
-    // Verifica que el título, subtítulo y el texto del botón se renderizan correctamente
+describe('DiscountProductCard', () => {
+  it('correctly displays the title, subtitle, and button text', () => {
+    renderWithRouter(<DiscountProductCard {...mockProps} />);
     expect(screen.getByText(mockProps.title)).toBeInTheDocument();
     expect(screen.getByText(mockProps.subtitle)).toBeInTheDocument();
     expect(screen.getByText(mockProps.buttonCopy)).toBeInTheDocument();
   });
 
   it('executes the animation on intersection', () => {
-    render(
-      <MemoryRouter>
-        <DiscountProductCard {...mockProps} />
-      </MemoryRouter>,
-    );
-
-    // Verifica que la animación se llama cuando el componente se monta
+    renderWithRouter(<DiscountProductCard {...mockProps} />);
     expect(animations.animateOnIntersection).toHaveBeenCalledWith(
       expect.anything(),
-      mockProps.animation,
+      mockProps.animation
     );
   });
 
   it('navigates to the correct URL when the button is clicked', () => {
-    render(
-      <MemoryRouter>
-        <DiscountProductCard {...mockProps} />
-      </MemoryRouter>,
-    );
-
-    // Simula un clic en el botón
+    const mockNavigate = jest.fn();
+    useNavigate.mockReturnValue(mockNavigate);
+    renderWithRouter(<DiscountProductCard {...mockProps} />);
     fireEvent.click(screen.getByText(mockProps.buttonCopy));
-
-    // Verifica que la URL cambia
-    expect(window.location.pathname).toBe(mockProps.url);
+    expect(mockNavigate).toHaveBeenCalledWith(mockProps.url);
   });
 });

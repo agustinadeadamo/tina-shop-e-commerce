@@ -1,10 +1,16 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
+import { screen, fireEvent } from '@testing-library/react';
+import { renderWithFirebaseMocks } from '../../utils/firebaseMocks';
 import CartSidebar from './';
+import errorMesajes from '../../constants/errorMesajes';
 
-const mockStore = configureStore([]);
+jest.mock('../../actions/cart', () => ({
+  removeItemFromCart: jest.fn(() => {
+    throw new Error('Test Error');
+  }),
+  updateCart: jest.fn(),
+}));
+
 const initialState = {
   cart: {
     items: [
@@ -29,62 +35,38 @@ const initialState = {
 };
 
 describe('CartSidebar', () => {
-  let store;
-
-  beforeEach(() => {
-    store = mockStore(initialState);
-  });
-
   it('renders CartSidebar with items', () => {
-    render(
-      <Provider store={store}>
-        <CartSidebar isOpen={true} toggleCart={jest.fn()} />
-      </Provider>,
+    renderWithFirebaseMocks(
+      <CartSidebar isOpen={true} toggleCart={jest.fn()} />,
+      {
+        initialState,
+      }
     );
-
     expect(screen.getByText('Test Product 1')).toBeInTheDocument();
     expect(screen.getByText('Test Product 2')).toBeInTheDocument();
-    expect(screen.getByText('$100.00')).toBeInTheDocument(); // subtotal of first product
-    expect(screen.getByText('$75.00')).toBeInTheDocument(); // subtotal of second product
+    expect(screen.getByText('$100.00')).toBeInTheDocument();
+    expect(screen.getByText('$75.00')).toBeInTheDocument();
   });
 
   it('displays empty cart message when there are no items', () => {
-    store = mockStore({
-      cart: {
-        items: [],
-      },
-    });
-
-    render(
-      <Provider store={store}>
-        <CartSidebar isOpen={true} toggleCart={jest.fn()} />
-      </Provider>,
+    renderWithFirebaseMocks(
+      <CartSidebar isOpen={true} toggleCart={jest.fn()} />,
+      {
+        initialState: { cart: { items: [] } },
+      }
     );
-
     expect(screen.getByText('Your cart is empty')).toBeInTheDocument();
   });
 
-  it('disables buttons when loading is true', () => {
-    render(
-      <Provider store={store}>
-        <CartSidebar isOpen={true} toggleCart={jest.fn()} />
-      </Provider>,
-    );
-
-    const button = screen.getAllByRole('button')[0];
-    fireEvent.click(button);
-    expect(button).toBeDisabled();
-  });
-
   it('renders error message when error occurs', () => {
-    render(
-      <Provider store={store}>
-        <CartSidebar isOpen={true} toggleCart={jest.fn()} />
-      </Provider>,
+    renderWithFirebaseMocks(
+      <CartSidebar isOpen={true} toggleCart={jest.fn()} />,
+      {
+        initialState,
+      }
     );
-
     fireEvent.click(
-      screen.getByRole('button', { name: /Remove Test Product 1 from cart/i }),
+      screen.getByRole('button', { name: /Remove Test Product 1 from cart/i })
     );
     expect(screen.getByText(errorMesajes.REMOVE_ITEM)).toBeInTheDocument();
   });

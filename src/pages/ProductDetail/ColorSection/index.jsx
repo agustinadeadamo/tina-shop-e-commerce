@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import ColorOption from "./ColorOption";
-import possibleColors from "./colorsData";
+import React, { useState } from 'react';
+import ColorOption from './ColorOption';
+import possibleColors from './colorsData';
 
 function ColorSection() {
   const [selectedColor, setSelectedColor] = useState(possibleColors[0]);
@@ -19,6 +19,7 @@ function ColorSection() {
             color={color}
             isSelected={selectedColor === color}
             onSelect={() => handleColorChange(color)}
+            dataTestid={`color-option-${color}`}
           />
         ))}
       </div>

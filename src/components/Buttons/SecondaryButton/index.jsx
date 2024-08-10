@@ -16,6 +16,7 @@ function SecondaryButton({ children, onClick, type, disabled = false }) {
       onClick={onClick}
       disabled={disabled}
       className={buttonClasses}
+      data-testid="secondary-button"
     >
       {children}
     </button>
