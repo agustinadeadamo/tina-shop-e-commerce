@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import FieldInput from './FieldInput';
+import { render, screen, fireEvent } from '@testing-library/react';
+import FieldInput from './';
 
 describe('FieldInput', () => {
   const defaultProps = {
@@ -22,8 +22,7 @@ describe('FieldInput', () => {
 
   it('renders the input field with correct props', () => {
     render(<FieldInput {...defaultProps} />);
-
-    const inputElement = screen.getByPlaceholderText('Enter text');
+    const inputElement = screen.getByTestId('field-input');
     expect(inputElement).toBeInTheDocument();
     expect(inputElement).toHaveAttribute('id', 'test-input');
     expect(inputElement).toHaveAttribute('type', 'text');
@@ -38,10 +37,11 @@ describe('FieldInput', () => {
       },
     };
     render(<FieldInput {...errorProps} />);
-
-    const inputElement = screen.getByPlaceholderText('Enter text');
+    const inputElement = screen.getByTestId('field-input');
     expect(inputElement).toHaveClass('border-red-500');
-    expect(screen.getByText('This field is required')).toBeInTheDocument();
+    expect(screen.getByTestId('error-message')).toHaveTextContent(
+      'This field is required',
+    );
   });
 
   it('does not show error message or error styles when the field is not touched', () => {
@@ -53,12 +53,9 @@ describe('FieldInput', () => {
       },
     };
     render(<FieldInput {...untouchedProps} />);
-
-    const inputElement = screen.getByPlaceholderText('Enter text');
+    const inputElement = screen.getByTestId('field-input');
     expect(inputElement).toHaveClass('border-gray-300');
-    expect(
-      screen.queryByText('This field is required'),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByTestId('error-message')).not.toBeInTheDocument();
   });
 
   it('shows focus style when input is focused', () => {
@@ -70,9 +67,8 @@ describe('FieldInput', () => {
       },
     };
     render(<FieldInput {...focusedProps} />);
-
-    const inputElement = screen.getByPlaceholderText('Enter text');
-    inputElement.focus();
+    const inputElement = screen.getByTestId('field-input');
+    fireEvent.focus(inputElement);
     expect(inputElement).toHaveClass('focus:border-pink-500');
   });
 });
