@@ -1,12 +1,11 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import ColorSection from './ColorSection';
+import ColorSection from './';
+import possibleColors from './colorsData';
 
 describe('ColorSection', () => {
   it('renders the correct number of color options', () => {
     render(<ColorSection />);
-
-    // Verifica que se renderizan todas las opciones de color
     const colorOptions = screen.getAllByRole('button');
     expect(colorOptions).toHaveLength(possibleColors.length);
   });
