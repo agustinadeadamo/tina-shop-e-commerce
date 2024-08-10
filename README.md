@@ -51,6 +51,10 @@ src/
 ├── App.js # Main app component that sets up the application's routes and global providers.
 └── index.js # Entry point that initializes the app and renders it to the DOM.
 
+## Why did I Use Firebase for Authentication?
+
+Firebase Authentication was chosen for this project due to its simplicity and robust feature set, which allows for quick integration of secure user authentication. It supports multiple authentication methods, including email/password and third-party providers like Google and Facebook, making it flexible for future expansions. Additionally, Firebase’s seamless integration with other Firebase services, such as Firestore, which aligns well with the needs of this e-commerce platform.
+
 ## State Management
 
 ### Why did I use Context API for Login and Modals?
