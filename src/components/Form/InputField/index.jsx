@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-function InputField({ id, type, placeholder, input, meta, dataTestid = '' }) {
+function InputField({ id, type, placeholder, input, meta, dataTestid = "" }) {
   const inputClasses = `p-2 border-b-2 text-sm ${
     meta.error && meta.touched
-      ? 'border-red-500 focus:border-red-500'
-      : 'border-gray-300 focus:border-primary'
+      ? "border-red-500 focus:border-red-500"
+      : "border-gray-300 focus:border-primary"
   } w-full outline-none focus:ring-0`;
 
   return (

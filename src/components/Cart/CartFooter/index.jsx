@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { PrimaryButton } from '../../Buttons';
+import React from "react";
+import PropTypes from "prop-types";
+import { PrimaryButton } from "../../Buttons";
 
 function CartFooter({ subtotal, loading }) {
   if (!subtotal) return null;

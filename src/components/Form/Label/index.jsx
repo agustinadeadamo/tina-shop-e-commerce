@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-function Label({ htmlFor, children, required = false, dataTestid = '' }) {
+function Label({ htmlFor, children, required = false, dataTestid = "" }) {
   return (
     <label
       htmlFor={htmlFor}

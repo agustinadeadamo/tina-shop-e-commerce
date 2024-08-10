@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Field } from 'react-final-form';
-import FieldInput from '../InputField';
-import Label from '../Label';
+import React from "react";
+import PropTypes from "prop-types";
+import { Field } from "react-final-form";
+import FieldInput from "../InputField";
+import Label from "../Label";
 
 function PasswordField({
-  name = 'password',
-  placeholder = 'Enter your password',
-  label = 'Password',
+  name = "password",
+  placeholder = "Enter your password",
+  label = "Password",
 }) {
-  const validatePassword = value => {
+  const validatePassword = (value) => {
     if (!value) {
-      return 'Required';
+      return "Required";
     }
     if (value.length < 6) {
-      return 'Password must be at least 6 characters';
+      return "Password must be at least 6 characters";
     }
     return undefined;
   };

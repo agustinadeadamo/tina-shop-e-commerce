@@ -1,21 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Field } from 'react-final-form';
-import validator from 'validator';
-import FieldInput from '../InputField';
-import Label from '../Label';
+import React from "react";
+import PropTypes from "prop-types";
+import { Field } from "react-final-form";
+import validator from "validator";
+import FieldInput from "../InputField";
+import Label from "../Label";
 
 function EmailField({
-  name = 'email',
-  placeholder = 'Enter your email',
-  label = 'Email',
+  name = "email",
+  placeholder = "Enter your email",
+  label = "Email",
 }) {
-  const validateEmail = value => {
+  const validateEmail = (value) => {
     if (!value) {
-      return 'Required';
+      return "Required";
     }
     if (!validator.isEmail(value)) {
-      return 'Invalid email address';
+      return "Invalid email address";
     }
     return undefined;
   };
