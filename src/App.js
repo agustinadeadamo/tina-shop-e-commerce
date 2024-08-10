@@ -15,7 +15,7 @@ const Store = lazy(() => import('./pages/Store'));
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Header />
@@ -37,6 +37,6 @@ function App() {
       <SignUpModal />
     </Router>
   );
-}
+};
 
 export default App;

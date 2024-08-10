@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PrimaryButton } from '../../Buttons';
 
-function CartFooter({ subtotal, loading }) {
+const CartFooter = ({ subtotal, loading }) => {
   if (!subtotal) return null;
 
   return (
@@ -31,7 +31,7 @@ function CartFooter({ subtotal, loading }) {
       </PrimaryButton>
     </div>
   );
-}
+};
 
 CartFooter.propTypes = {
   subtotal: PropTypes.number.isRequired,

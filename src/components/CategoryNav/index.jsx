@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CATEGORY_MAP from '../../constants/categories';
 
-function CategoryNav() {
+const CategoryNav = () => {
   return (
     <nav className="hidden md:block category-nav bg-primary py-4 shadow-sm border-b border-gray-200">
       <ul className="flex justify-center space-x-8">
@@ -20,6 +20,6 @@ function CategoryNav() {
       </ul>
     </nav>
   );
-}
+};
 
 export default React.memo(CategoryNav);

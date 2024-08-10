@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router-dom';
 import { getPathSegments, translateSegment } from '../../utils/urls';
 
-function BreadcrumbItem({ segment, index, pathSegments }) {
+const BreadcrumbItem = ({ segment, index, pathSegments }) => {
   const segmentName = translateSegment(segment);
   const pathTo = `/${pathSegments.slice(0, index + 1).join('/')}`;
 
@@ -15,9 +15,9 @@ function BreadcrumbItem({ segment, index, pathSegments }) {
       </Link>
     </span>
   );
-}
+};
 
-function Breadcrumb() {
+const Breadcrumb = () => {
   const { pathname } = useLocation();
   const pathSegments = getPathSegments(pathname);
 
@@ -33,7 +33,7 @@ function Breadcrumb() {
       ))}
     </nav>
   );
-}
+};
 
 BreadcrumbItem.propTypes = {
   segment: PropTypes.string.isRequired,

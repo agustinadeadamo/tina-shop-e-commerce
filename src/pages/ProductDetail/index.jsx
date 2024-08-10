@@ -16,7 +16,7 @@ import { updateCart } from '../../actions/cart';
 import errorMesajes from '../../constants/errorMesajes';
 import ResponsiveContainer from '../../components/ResponsiveMainContainer';
 
-function ProductDetail() {
+const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [generalError, setGeneralError] = useState(null);
   const [isCartLoading, setIsCartLoading] = useState(false);
@@ -98,6 +98,6 @@ function ProductDetail() {
       )}
     </ResponsiveContainer>
   );
-}
+};
 
 export default ProductDetail;

@@ -8,7 +8,7 @@ export const useError = () => useContext(GeneralErrorContext);
 
 // GeneralErrorProvider component to provide error handling functionality to its children
 // This will display ErrorPopup in the screen if there's an error
-export function GeneralErrorProvider({ children }) {
+export const GeneralErrorProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const showError = (message) => setError(message);
@@ -26,7 +26,7 @@ export function GeneralErrorProvider({ children }) {
       {error && <ErrorPopup message={error} onClose={hideError} />}
     </GeneralErrorContext.Provider>
   );
-}
+};
 
 GeneralErrorProvider.propTypes = {
   children: PropTypes.node.isRequired,

@@ -5,7 +5,7 @@ import ProductCard from '../ProductCard';
 import { useProductCardActions } from '../../hooks';
 import trendingProductsAnimation from './animations';
 
-function TrendingProducts({ products }) {
+const TrendingProducts = ({ products }) => {
   const containerRef = useRef(null);
   const { handleAddSingleItemToCart, handleViewMore } = useProductCardActions();
   const productsExist = !products?.length;
@@ -38,7 +38,7 @@ function TrendingProducts({ products }) {
       </div>
     </ResponsiveContainer>
   );
-}
+};
 
 TrendingProducts.propTypes = {
   products: PropTypes.arrayOf(

@@ -4,7 +4,7 @@ import Icon from '../Icon';
 import animateAccordion from '../animations';
 import './style.scss';
 
-function AccordionItem({ section, index, isOpen, onClick }) {
+const AccordionItem = ({ section, index, isOpen, onClick }) => {
   const itemRef = useRef(null);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function AccordionItem({ section, index, isOpen, onClick }) {
       </div>
     </div>
   );
-}
+};
 
 AccordionItem.propTypes = {
   section: PropTypes.shape({

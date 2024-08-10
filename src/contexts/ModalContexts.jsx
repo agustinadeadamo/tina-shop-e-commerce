@@ -11,7 +11,7 @@ export const ModalContext = createContext();
 
 // ModalContext is created to manage the state of login and signup modals across the application.
 // This context provides functions to open and close the modals and tracks whether each modal is currently open or closed.
-export function ModalProvider({ children }) {
+export const ModalProvider = ({ children }) => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setSignupModalOpen] = useState(false);
 
@@ -45,7 +45,7 @@ export function ModalProvider({ children }) {
       {children}
     </ModalContext.Provider>
   );
-}
+};
 
 ModalProvider.propTypes = {
   children: PropTypes.node.isRequired,

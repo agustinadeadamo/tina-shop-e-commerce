@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaStar } from 'react-icons/fa';
 
-function ReviewCard({ review }) {
+const ReviewCard = ({ review }) => {
   return (
     <div className="bg-white p-6 shadow-lg">
       {/* Rating stars */}
@@ -17,7 +17,7 @@ function ReviewCard({ review }) {
       <p className="text-gray-600">{review.comment}</p>
     </div>
   );
-}
+};
 
 ReviewCard.propTypes = {
   review: PropTypes.shape({

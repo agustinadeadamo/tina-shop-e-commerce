@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaTimes } from 'react-icons/fa';
 
-function ErrorPopup({ message, onClose }) {
+const ErrorPopup = ({ message, onClose }) => {
   return (
     <div className="fixed top-[50px] left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-4 rounded shadow-lg z-50">
       <p>{message}</p>
@@ -16,7 +16,7 @@ function ErrorPopup({ message, onClose }) {
       </button>
     </div>
   );
-}
+};
 
 ErrorPopup.propTypes = {
   message: PropTypes.string.isRequired,

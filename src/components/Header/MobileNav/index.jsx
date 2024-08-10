@@ -4,7 +4,7 @@ import NavMenuItems from '../NavMenuItems';
 import CartButton from '../CartButton';
 import AuthButton from '../AuthButton';
 
-function MobileNav() {
+const MobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -51,6 +51,6 @@ function MobileNav() {
       )}
     </div>
   );
-}
+};
 
 export default MobileNav;

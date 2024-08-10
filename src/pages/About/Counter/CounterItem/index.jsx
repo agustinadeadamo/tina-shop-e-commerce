@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function CounterItem({ innerRef, label }) {
+const CounterItem = ({ innerRef, label }) => {
   return (
     <div className="text-center w-full sm:w-auto">
       <span
@@ -13,7 +13,7 @@ function CounterItem({ innerRef, label }) {
       <p className="text-lg">{label}</p>
     </div>
   );
-}
+};
 
 CounterItem.propTypes = {
   innerRef: PropTypes.oneOfType([

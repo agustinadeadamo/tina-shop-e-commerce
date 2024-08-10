@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CartBanner() {
+const CartBanner = () => {
   return (
     <div className="bg-customGrey-light px-4 py-2 text-xs">
       <p>
@@ -13,6 +13,6 @@ function CartBanner() {
       </p>
     </div>
   );
-}
+};
 
 export default CartBanner;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TeamMemberCard({ member }) {
+const TeamMemberCard = ({ member }) => {
   return (
     <div className="relative group overflow-hidden">
       <img
@@ -17,7 +17,7 @@ function TeamMemberCard({ member }) {
       </div>
     </div>
   );
-}
+};
 
 TeamMemberCard.propTypes = {
   member: PropTypes.shape({

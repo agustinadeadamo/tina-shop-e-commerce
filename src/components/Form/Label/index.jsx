@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Label({ htmlFor, children, required = false, dataTestid = '' }) {
+const Label = ({ htmlFor, children, required = false, dataTestid = '' }) => {
   return (
     <label
       htmlFor={htmlFor}
@@ -11,7 +11,7 @@ function Label({ htmlFor, children, required = false, dataTestid = '' }) {
       {children} {required && <span>*</span>}
     </label>
   );
-}
+};
 
 Label.propTypes = {
   htmlFor: PropTypes.string.isRequired,

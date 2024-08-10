@@ -5,11 +5,11 @@ import validator from 'validator';
 import FieldInput from '../InputField';
 import Label from '../Label';
 
-function EmailField({
+const EmailField = ({
   name = 'email',
   placeholder = 'Enter your email',
   label = 'Email',
-}) {
+}) => {
   const validateEmail = (value) => {
     if (!value) {
       return 'Required';
@@ -47,7 +47,7 @@ function EmailField({
       )}
     </Field>
   );
-}
+};
 
 EmailField.propTypes = {
   name: PropTypes.string,

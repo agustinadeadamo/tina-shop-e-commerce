@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function QuantitySelector({
+const QuantitySelector = ({
   quantity,
   increaseQuantity,
   decreaseQuantity,
   disabled = false,
-}) {
+}) => {
   const buttonClass = `flex items-center justify-center w-7 h-7 border-2 border-primary text-primary focus:outline-none rounded-full transition-colors ${
     disabled
       ? 'bg-secondary-light cursor-not-allowed'
@@ -46,7 +46,7 @@ function QuantitySelector({
       </button>
     </div>
   );
-}
+};
 
 QuantitySelector.propTypes = {
   quantity: PropTypes.number.isRequired,

@@ -10,7 +10,7 @@ import CategoryNav from '../../components/CategoryNav';
 import Breadcrumb from '../../components/Breadcrumb';
 import CATEGORY_MAP from '../../constants/categories';
 
-function Store() {
+const Store = () => {
   const { category } = useParams();
   // Translates a URL into a user-friendly name
   const categoryKey = CATEGORY_MAP[category] || '';
@@ -27,6 +27,6 @@ function Store() {
       </ResponsiveContainer>
     </>
   );
-}
+};
 
 export default React.memo(Store);

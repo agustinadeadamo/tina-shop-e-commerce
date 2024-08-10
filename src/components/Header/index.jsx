@@ -6,7 +6,7 @@ import AuthButton from './AuthButton';
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
 
-function Header() {
+const Header = () => {
   const navigate = useNavigate();
 
   const onClickLogo = () => {
@@ -32,6 +32,6 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

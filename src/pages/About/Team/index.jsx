@@ -4,7 +4,7 @@ import ResponsiveMainContainer from '../../../components/ResponsiveMainContainer
 import teamMembersAnimations from './animations';
 import TeamMemberCard from './TeamMemberCard';
 
-function Team() {
+const Team = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -28,6 +28,6 @@ function Team() {
       </ResponsiveMainContainer>
     </section>
   );
-}
+};
 
 export default Team;

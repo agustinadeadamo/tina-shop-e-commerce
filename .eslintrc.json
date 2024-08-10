@@ -36,7 +36,14 @@
     "react/button-has-type": "off",
     "no-console": ["warn", { "allow": ["warn", "error", "log"] }],
     "no-debugger": ["warn"],
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
   },
   "settings": {
     "react": {

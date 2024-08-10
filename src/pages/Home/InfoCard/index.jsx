@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import infoCardData from './infoCardData';
 import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
 
-function InfoCard({ title, icon, copy }) {
+const InfoCard = ({ title, icon, copy }) => {
   return (
     <div className="flex flex-col md:flex-row items-center max-w-md p-4 md:p-8 w-full">
       <div className="flex items-center justify-center w-10 h-10 mb-4 md:mb-0 md:mr-4">
@@ -15,7 +15,7 @@ function InfoCard({ title, icon, copy }) {
       </div>
     </div>
   );
-}
+};
 
 InfoCard.propTypes = {
   title: PropTypes.string.isRequired,
@@ -23,7 +23,7 @@ InfoCard.propTypes = {
   copy: PropTypes.string.isRequired,
 };
 
-function InfoCards() {
+const InfoCards = () => {
   return (
     <div className="relative py-4 px-3 bg-tertiary lg:w-[1000px]">
       <ResponsiveContainer>
@@ -40,6 +40,6 @@ function InfoCards() {
       </ResponsiveContainer>
     </div>
   );
-}
+};
 
 export default InfoCards;

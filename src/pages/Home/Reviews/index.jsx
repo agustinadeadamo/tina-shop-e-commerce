@@ -5,7 +5,7 @@ import ReviewCard from './ReviewCard';
 import ResponsiveContainer from '../../../components/ResponsiveMainContainer';
 import reviewsAnimation from './animations';
 
-function Reviews() {
+const Reviews = () => {
   // References for GSAP animations
   const reviewsContainerRef = useRef(null);
 
@@ -41,6 +41,6 @@ function Reviews() {
       </ResponsiveContainer>
     </div>
   );
-}
+};
 
 export default Reviews;

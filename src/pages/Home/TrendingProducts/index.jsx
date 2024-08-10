@@ -2,7 +2,7 @@ import React from 'react';
 import { useProducts } from '../../../hooks';
 import TrendingProducts from '../../../components/TrendingProducts';
 
-function TrendingProductsSection() {
+const TrendingProductsSection = () => {
   const { products } = useProducts(4);
 
   return (
@@ -10,6 +10,6 @@ function TrendingProductsSection() {
       <TrendingProducts products={products} />
     </div>
   );
-}
+};
 
 export default TrendingProductsSection;

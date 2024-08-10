@@ -3,7 +3,7 @@ import Counter from './Counter';
 import Team from './Team';
 import AboutUs from './AboutUs';
 
-function About() {
+const About = () => {
   return (
     <>
       <Counter />
@@ -11,6 +11,6 @@ function About() {
       <Team />
     </>
   );
-}
+};
 
 export default About;

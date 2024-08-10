@@ -10,7 +10,7 @@ import { PrimaryButton, SecondaryButton } from '../Buttons';
 import { useAuth } from '../../contexts/AuthContext';
 import { useError } from '../../contexts/GeneralErrorContext';
 
-function LoginModal() {
+const LoginModal = () => {
   const { isLoginModalOpen, closeLoginModal, openSignupModal } = useModal();
   const { login } = useAuth();
   const [loginError, setLoginError] = useState(null);
@@ -94,6 +94,6 @@ function LoginModal() {
       <div />
     </Modal>
   );
-}
+};
 
 export default LoginModal;
