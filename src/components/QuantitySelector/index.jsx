@@ -15,13 +15,14 @@ function QuantitySelector({
   const buttonSpanClass = "text-2xl leading-none mb-[3px]";
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center" data-testid="quantity-selector">
       <button
         type="button"
         aria-label="Decrease quantity"
         onClick={decreaseQuantity}
         className={buttonClass}
         disabled={disabled}
+        data-testid="decrease-button"
       >
         <span className={buttonSpanClass}>-</span>
       </button>
@@ -31,6 +32,7 @@ function QuantitySelector({
         readOnly
         className="w-7 h-7 text-center bg-white focus:outline-none mx-1 text-xs"
         aria-label={`Quantity: ${quantity}`}
+        data-testid="quantity-input"
       />
       <button
         type="button"
@@ -38,6 +40,7 @@ function QuantitySelector({
         onClick={increaseQuantity}
         className={buttonClass}
         disabled={disabled}
+        data-testid="increase-button"
       >
         <span className={buttonSpanClass}>+</span>
       </button>
