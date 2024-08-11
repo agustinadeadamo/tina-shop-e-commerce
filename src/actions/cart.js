@@ -21,6 +21,8 @@ export const fetchCartItems = createAsyncThunk(
 const syncCart = async (updatedItems) => {
   if (auth.currentUser) {
     await syncCartWithDB(updatedItems);
+  } else {
+    await Promise.resolve();
   }
   return {
     items: updatedItems,
