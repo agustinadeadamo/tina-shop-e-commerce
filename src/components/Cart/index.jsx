@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCart, removeItemFromCart } from '../../actions/cart';
+import { useDisabledScroll } from '../../hooks';
 import errorMesajes from '../../constants/errorMesajes';
 import CartItem from './CartItem';
 import CartHeader from './CartHeader';
@@ -15,6 +16,7 @@ const CartSidebar = ({ isOpen, toggleCart }) => {
   const items = useSelector((state) => state.cart.items);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  useDisabledScroll(isOpen);
 
   const cartContainerStyles = `fixed top-0 right-0 bottom-0 bg-white shadow-lg z-50 transition-transform transform w-[375px] ${
     isOpen ? 'translate-x-0' : 'translate-x-full'

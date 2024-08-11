@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useScrollToTop } from './hooks';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
@@ -15,16 +16,18 @@ const Store = lazy(() => import('./pages/Store'));
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 
-const App = () => {
+const AppContent = () => {
+  useScrollToTop();
+
   return (
-    <Router>
+    <>
       <Header />
       <main className="min-h-[80vh]">
         <Suspense fallback={<Loader />}>
           <Routes>
             {/* Routes are lazy loaded to minimize initial bundle size.
-            This helps improve the initial load time of the application by loading only the
-            necessary code for the current route, and loading other routes on-demand. */}
+          This helps improve the initial load time of the application by loading only the
+          necessary code for the current route, and loading other routes on-demand. */}
             <Route index path="/" element={<Home />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/store/:category?" element={<Store />} />
@@ -35,8 +38,14 @@ const App = () => {
       <Footer />
       <LoginModal />
       <SignUpModal />
-    </Router>
+    </>
   );
 };
+
+const App = () => (
+  <Router>
+    <AppContent />
+  </Router>
+);
 
 export default App;
