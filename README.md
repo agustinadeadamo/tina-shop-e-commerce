@@ -45,15 +45,15 @@ This project is a fully functional e-commerce platform built with **React**, **T
 
 Firebase Authentication was chosen for this project due to its simplicity and robust feature set, which allows for quick integration of secure user authentication. It supports multiple authentication methods, including email/password and third-party providers like Google and Facebook, making it flexible for future expansions. Additionally, Firebase’s seamless integration with other Firebase services, such as Firestore, which aligns well with the needs of this e-commerce platform.
 
-### Why did I use Context API for Login and Modals?
+### Why did I use Context API for User Authentication and Modals?
 
-- **Login:** The login state is managed with Context API because it is a simpler, more localized state, primarily needed by a few components such as the header and the cart. Context API provides a lightweight solution without the overhead of a global state manager like Redux, making it ideal for this use case.
+- **User Authentication:** Currently, user authentication is managed through the Context API due to its simplicity and ability to handle localized state, such as login/logout, without the need for a more complex solution like Redux. This approach also makes it easier to integrate additional authentication methods, such as Google Sign-In, in the future without significant changes to the code structure.
 
 - **Modals:** Modals are also managed using Context API as they require simple state logic (open/close) that is triggered from various parts of the application. Context API offers a straightforward way to share this state between components without the need for Redux’s more complex setup.
 
 ### Why did I use Redux for the Cart?
 
-Redux is used specifically for managing the cart state due to its complexity and the need for global accessibility across the application. The cart involves multiple operations like adding, removing, and updating items, which require a consistent and centralized state management solution. Redux’s middleware, such as redux-thunk, also allows handling asynchronous actions like syncing the cart with the backend server efficiently. This makes Redux the optimal choice for managing the cart state in a scalable and predictable manner
+Redux was chosen for managing the shopping cart due to its ability to handle complex, centralized state management across the application. It efficiently manages operations like adding, removing, and updating items, ensuring consistent state. With the help of Redux Thunk, it also handles asynchronous actions, such as syncing cart data with Firebase Firestore, smoothly. This setup not only synchronizes the cart with the backend but also lays the groundwork for future enhancements like implementing a checkout flow, making it easier to integrate features like payment processing without major restructuring.
 
 ## Performance Optimizations
 
@@ -104,8 +104,7 @@ Babel is implemented to ensure that the latest JavaScript features are compatibl
 ## Future Enhancements
 
 - Implementing the checkout flow with integrated payment processing
-- Further performance enhancements, such as server-side rendering (SSR) with Next.js.
-  Integrating additional authentication methods (e.g., Google, Facebook) using Firebase Authentication.
+- Integrating additional authentication methods (e.g., Google, Facebook) using Firebase Authentication.
 
 ## Deployment
 
