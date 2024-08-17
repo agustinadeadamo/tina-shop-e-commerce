@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useScrollToTop } from './hooks';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Loader from './components/Loader';
+import FullScreenLoader from './components/FullScreenLoader';
 import LoginModal from './components/LoginModal';
 import SignUpModal from './components/SignUpModal';
 import './styles.scss';
@@ -23,7 +23,7 @@ const AppContent = () => {
     <>
       <Header />
       <main className="min-h-[80vh]">
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<FullScreenLoader />}>
           <Routes>
             {/* Routes are lazy loaded to minimize initial bundle size.
           This helps improve the initial load time of the application by loading only the
