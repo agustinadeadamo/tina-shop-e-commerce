@@ -27,10 +27,6 @@ const ProductDetail = () => {
   const { products } = useProducts(5);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
-
-  useEffect(() => {
     setGeneralError(productError);
   }, [productError]);
 
