@@ -7,15 +7,13 @@ const QuantitySelector = ({
   decreaseQuantity,
   disabled = false,
 }) => {
-  const buttonClass = `flex items-center justify-center w-7 h-7 border-2 border-primary text-primary focus:outline-none rounded-full transition-colors ${
-    disabled
-      ? 'bg-secondary-light cursor-not-allowed'
-      : 'hover:bg-secondary-light'
+  const buttonClass = `flex items-center justify-center w-6 h-6 border-2 border-black text-black focus:outline-none rounded-full transition-colors ${
+    disabled ? 'bg-gray-200 cursor-not-allowed' : 'hover:bg-gray-100'
   }`;
-  const buttonSpanClass = 'text-2xl leading-none mb-[3px]';
+  const buttonSpanClass = 'text-xl leading-none mb-[2px]';
 
   return (
-    <div className="flex items-center" data-testid="quantity-selector">
+    <div className="flex items-center">
       <button
         type="button"
         aria-label="Decrease quantity"
@@ -30,7 +28,7 @@ const QuantitySelector = ({
         type="text"
         value={quantity}
         readOnly
-        className="w-7 h-7 text-center bg-white focus:outline-none mx-1 text-xs"
+        className="w-6 h-6 text-center bg-white focus:outline-none mx-1 text-xs"
         aria-label={`Quantity: ${quantity}`}
         data-testid="quantity-input"
       />
