@@ -8,9 +8,16 @@ const BreadcrumbItem = ({ segment, index, pathSegments }) => {
   const pathTo = `/${pathSegments.slice(0, index + 1).join('/')}`;
 
   return (
-    <span className="flex items-center font-bebas">
-      {index > 0 && <span className="mx-2 text-gray-400">{'>'}</span>}
-      <Link to={pathTo} className="text-gray-800 font-bold">
+    <span className="flex items-center">
+      {index > 0 && <span className="mx-2 text-gray-400">/</span>}
+      <Link
+        to={pathTo}
+        className={`${
+          index === pathSegments.length - 1
+            ? 'text-gray-800'
+            : 'text-gray-800 hover:underline'
+        }`}
+      >
         {segmentName}
       </Link>
     </span>
@@ -22,7 +29,7 @@ const Breadcrumb = () => {
   const pathSegments = getPathSegments(pathname);
 
   return (
-    <nav className="text-gray-600 text-xl pt-10 flex items-center space-x-2">
+    <nav className="text-gray-600 text-sm flex items-center space-x-1 pt-2">
       {pathSegments.map((segment, index) => (
         <BreadcrumbItem
           key={segment}
