@@ -5,11 +5,7 @@ import TrendingProducts from '../../../components/TrendingProducts';
 const TrendingProductsSection = () => {
   const { products } = useProducts(4);
 
-  return (
-    <div className="pb-20">
-      <TrendingProducts products={products} />
-    </div>
-  );
+  return <TrendingProducts products={products} />;
 };
 
 export default TrendingProductsSection;
