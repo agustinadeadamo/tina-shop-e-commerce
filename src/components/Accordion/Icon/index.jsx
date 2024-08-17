@@ -4,9 +4,9 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const Icon = ({ isOpen }) => {
   return isOpen ? (
-    <FaChevronUp className="text-gray-500" />
+    <FaChevronUp className="text-black" />
   ) : (
-    <FaChevronDown className="text-gray-500" />
+    <FaChevronDown className="text-black" />
   );
 };
 

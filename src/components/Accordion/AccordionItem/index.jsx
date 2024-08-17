@@ -1,40 +1,34 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 import Icon from '../Icon';
-import animateAccordion from '../animations';
-import './style.scss';
+import contentVariants from './anim';
 
 const AccordionItem = ({ section, index, isOpen, onClick }) => {
-  const itemRef = useRef(null);
-
-  useEffect(() => {
-    if (itemRef.current) {
-      animateAccordion(itemRef.current, isOpen);
-    }
-  }, [isOpen]);
-
   return (
-    <div className="mb-4" data-testid="accordion-item">
+    <div className="mb-4">
       <button
         type="button"
         onClick={() => onClick(index)}
         className="w-full flex justify-between items-center bg-transparent pb-4 pt-4 rounded-none focus:outline-none border-b border-gray-200"
-        data-testid={`accordion-button-${index}`}
+        aria-expanded={isOpen}
+        aria-controls={`section-content-${index}`}
       >
         <span>{section.title}</span>
         <Icon isOpen={isOpen} />
       </button>
-      <div
-        ref={itemRef}
-        className={`overflow-hidden transition-height duration-300 ${
-          isOpen ? 'h-auto' : 'h-0'
-        }`}
-        data-testid={`accordion-content-container-${index}`}
+      <motion.div
+        initial="closed"
+        animate={isOpen ? 'open' : 'closed'}
+        variants={contentVariants}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="overflow-hidden"
+        id={`section-content-${index}`}
       >
         <div className="p-4 border-t border-gray-200">
           <p>{section.content}</p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -42,7 +36,7 @@ const AccordionItem = ({ section, index, isOpen, onClick }) => {
 AccordionItem.propTypes = {
   section: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired, // Allows string or React nodes
   }).isRequired,
   index: PropTypes.number.isRequired,
   isOpen: PropTypes.bool.isRequired,
