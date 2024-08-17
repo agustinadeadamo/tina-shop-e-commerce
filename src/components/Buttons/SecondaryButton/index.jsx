@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SecondaryButton = ({ children, onClick, type, disabled = false }) => {
-  const buttonClasses = `py-2 px-4 text-primary w-full transition-colors duration-300
-  ${
-    disabled
-      ? 'bg-pink-100 text-primary cursor-not-allowed'
-      : 'border-b-2 border-transparent '
-  }
-`;
+  const buttonClasses = `py-2 px-4 text-primary w-full transition-colors duration-300 text-sm
+    ${
+      disabled
+        ? 'bg-pink-100 text-primary cursor-not-allowed'
+        : 'border-b-2 border-transparent underline'
+    }
+  `;
 
   return (
     <button
@@ -16,7 +16,6 @@ const SecondaryButton = ({ children, onClick, type, disabled = false }) => {
       onClick={onClick}
       disabled={disabled}
       className={buttonClasses}
-      data-testid="secondary-button"
     >
       {children}
     </button>

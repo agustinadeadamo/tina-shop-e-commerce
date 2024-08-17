@@ -6,13 +6,12 @@ const PrimaryButton = ({
   onClick,
   type = 'button',
   disabled = false,
-  dataTestid = '',
 }) => {
   const buttonClasses = `py-2 px-4 w-full transition-colors duration-300 text-lg text-sm lg:text-base
   ${
     disabled
-      ? 'bg-pink-100 text-primary cursor-not-allowed'
-      : 'bg-primary text-white'
+      ? 'bg-pink-100 text-black cursor-not-allowed'
+      : 'bg-black text-white'
   }`;
 
   return (
@@ -21,7 +20,6 @@ const PrimaryButton = ({
       onClick={onClick}
       className={buttonClasses}
       disabled={disabled}
-      data-testid={dataTestid}
     >
       {children}
     </button>
@@ -33,7 +31,6 @@ PrimaryButton.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
-  dataTestid: PropTypes.string,
 };
 
 export default PrimaryButton;
