@@ -49,7 +49,9 @@ const LoginModal = () => {
     >
       <div className="bg-customGrey-light">
         <div className="w-full md:w-[400px] h-auto bg-white pt-10 pb-6 px-4 md:px-12">
-          <h2 className="text-2xl text-primary text-center">Welcome back!</h2>
+          <h2 className="text-2xl font-montserrat text-primary text-center">
+            Welcome back!
+          </h2>
           <p className="text-center text-sm text-zinc-600 mb-10">
             Login to access your saved swag
           </p>
