@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ErrorSvg from '../../images/error-message.svg';
+import { CiCircleAlert } from 'react-icons/ci';
 
 const ErrorMessage = ({ message }) => {
   return (
-    <div className="w-full h-screen flex flex-col items-center">
-      <ErrorSvg className="w-60 h-60 mb-4" />
-      <p className="text-center text-primary">{message}</p>
+    <div className="w-full h-screen flex flex-col items-center mt-[100px]">
+      <CiCircleAlert className="text-6xl text-red-600" />
+      <p className="text-center text-primary mt-4">{message}</p>
     </div>
   );
 };
