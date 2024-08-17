@@ -18,7 +18,9 @@ const ProductInfo = ({
   return (
     <div className="lg:col-span-1 overflow-y-auto max-h-full">
       {/* Product Title */}
-      <h1 className="text-2xl lg:text-3xl font-bold mb-4">{product.title}</h1>
+      <h1 className="text-2xl lg:text-3xl font-bold mb-4 uppercase">
+        {product.title}
+      </h1>
       {/* Product Price */}
       <p className="text-gray-700 text-lg lg:text-2xl mb-4">${product.price}</p>
       {/* Product Description */}

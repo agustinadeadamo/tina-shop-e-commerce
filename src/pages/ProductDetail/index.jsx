@@ -27,6 +27,10 @@ const ProductDetail = () => {
   const { products } = useProducts(5);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
+  useEffect(() => {
     setGeneralError(productError);
   }, [productError]);
 
@@ -66,33 +70,35 @@ const ProductDetail = () => {
   );
 
   return (
-    <ResponsiveContainer customClass="pt-16">
-      {loading && <Loader />}
-      {generalError && (
-        <p className="text-center text-red-500 mb-10">{generalError}</p>
-      )}
+    <>
+      <ResponsiveContainer customClass="pt-16">
+        {loading && <Loader />}
+        {generalError && (
+          <p className="text-center text-red-500 mb-10">{generalError}</p>
+        )}
+        {product && (
+          <div
+            ref={containerRef}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16"
+          >
+            <ProductImage image={product.image} title={product.title} />
+            <ProductInfo
+              product={product}
+              quantity={quantity}
+              increaseQuantity={increaseQuantity}
+              decreaseQuantity={decreaseQuantity}
+              handleAddToCart={handleAddToCart}
+              disabledButtons={isCartLoading}
+            />
+          </div>
+        )}
+      </ResponsiveContainer>
       {product && (
-        <div
-          ref={containerRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16"
-        >
-          <ProductImage image={product.image} title={product.title} />
-          <ProductInfo
-            product={product}
-            quantity={quantity}
-            increaseQuantity={increaseQuantity}
-            decreaseQuantity={decreaseQuantity}
-            handleAddToCart={handleAddToCart}
-            disabledButtons={isCartLoading}
-          />
-        </div>
-      )}
-      {product && (
-        <div className="mt-8">
+        <div className="mt-8 px-12">
           <TrendingProducts products={trendingProductsFiltered} />
         </div>
       )}
-    </ResponsiveContainer>
+    </>
   );
 };
 
