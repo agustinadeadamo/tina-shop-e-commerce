@@ -3,22 +3,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#ad74ad',
-        secondary: {
-          light: '#e6cfe6',
-          DEFAULT: '#2391b1',
-        },
-        tertiary: {
-          light: '#D7ECED',
-          DEFAULT: '#f9bb30',
-        },
-        customGrey: {
-          light: '#F8F3ED',
-          DEFAULT: '#f4f4f6',
-        },
+        primary: '#000',
+        secondary: '#807EF5',
+        tertiary: '#D7ECED',
       },
       fontFamily: {
-        bebas: ['Bebas Neue', 'sans-serif'],
+        archivo: ['Archivo Black', 'sans-serif'],
+        montserrat: ['Montserrat', 'system-ui'],
       },
     },
   },
