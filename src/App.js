@@ -22,7 +22,7 @@ const AppContent = () => {
   return (
     <>
       <Header />
-      <main className="min-h-[80vh]">
+      <main className="min-h-[95vh] pt-[70px]">
         <Suspense fallback={<FullScreenLoader />}>
           <Routes>
             {/* Routes are lazy loaded to minimize initial bundle size.
