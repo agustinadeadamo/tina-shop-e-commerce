@@ -6,14 +6,14 @@ import { useEffect, useState, useRef } from 'react';
  * @param {Object} options - Configuration options for the Intersection Observer, such as root, rootMargin, and threshold.
  * @returns {[Object, boolean]} - Returns a ref to be attached to the target element and a boolean indicating whether the element is currently visible in the viewport.
  */
-const useLazyLoad = (options) => {
+const useLazyLoad = (options = { threshold: 0.1 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
 
   useEffect(() => {
     const currentRef = ref.current;
+    if (!currentRef) return;
 
-    // Create an IntersectionObserver to monitor the element's visibility in the viewport
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setIsVisible(true);
@@ -22,14 +22,11 @@ const useLazyLoad = (options) => {
       }
     }, options);
 
-    if (currentRef) {
-      observer.observe(currentRef); // Start observing the element
-    }
+    observer.observe(currentRef);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef); // Clean up: stop observing the element when the component unmounts or ref changes
-      }
+      // Clean up: stop observing the element when the component unmounts or ref changes
+      observer.unobserve(currentRef);
     };
   }, [options]);
 
