@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PrimaryButton } from '../../../components/Buttons';
 
 const RedirectToShop = () => {
+  const navigate = useNavigate();
+
+  const onClickGoToShop = () => {
+    navigate('/store');
+  };
+
   return (
     <>
       <motion.p
@@ -21,7 +28,7 @@ const RedirectToShop = () => {
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
         className="pt-5"
       >
-        <PrimaryButton onClick={() => {}}>Go to shop</PrimaryButton>
+        <PrimaryButton onClick={onClickGoToShop}>Go to shop</PrimaryButton>
       </motion.div>
     </>
   );

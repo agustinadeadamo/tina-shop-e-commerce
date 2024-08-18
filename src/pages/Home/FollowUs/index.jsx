@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { variants, imageVariants, imgHover } from './animation';
+import { variants, imageVariants, imgHover } from './animationVariants';
 import images from './imagesData';
 
 const FollowUs = () => {
@@ -33,7 +33,7 @@ const FollowUs = () => {
       <div className="flex w-full h-80 md:h-96">
         {images.map(({ id, src }) => (
           <motion.div
-            key={id} // Use unique id for the key
+            key={id}
             className="relative overflow-hidden flex-1"
             initial="initial"
             whileHover="hover"

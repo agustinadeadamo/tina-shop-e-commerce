@@ -1,9 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { imageVariants, textVariants } from './animations';
+import { imageVariants, textVariants } from './animationsVariants';
 import HeroImage from '../../../images/hero-banner-bg.jpg';
 
 const HeroBanner = () => {
+  const navigate = useNavigate();
+
+  const onClickButton = () => {
+    navigate('/store');
+  };
+
   return (
     <div className="relative overflow-hidden h-[85vh]">
       {/* Image with zoom out effect */}
@@ -30,9 +37,10 @@ const HeroBanner = () => {
           initial={textVariants.initial}
           animate={textVariants.animate}
           transition={textVariants.transition(1.8)}
-          className="mt-4 px-6 py-2 bg-white text-black text-sm font-montserrat"
+          onClick={onClickButton}
+          className="mt-4 px-6 py-2 bg-white text-black text-sm font-montserrat uppercase"
         >
-          EXPLORE THE WOMEN&apos;S COLLECTION
+          Explore the women&apos;s collection
         </motion.button>
       </div>
     </div>

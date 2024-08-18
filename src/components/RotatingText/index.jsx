@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import opacity from './anim';
+import opacity from './animationVariants';
 
 /**
  * RotatingText Component
