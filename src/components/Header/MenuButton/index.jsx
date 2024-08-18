@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { opacity } from '../animationVariants';
+import './style.scss';
 
 const MenuButton = ({ onClick, isActive }) => {
   const copyClasses = 'hidden md:block';
@@ -21,10 +22,10 @@ const MenuButton = ({ onClick, isActive }) => {
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
-      className="el flex items-center"
+      className="el gap-[8px] cursor-pointer  flex items-center"
     >
       <div className={getBurgerClasses} />
-      <div className="label flex items-center">
+      <div className="label flex items-center text-sm">
         <motion.p
           className={copyClasses}
           variants={opacity}
@@ -33,7 +34,7 @@ const MenuButton = ({ onClick, isActive }) => {
           Menu
         </motion.p>
         <motion.p
-          className={copyClasses}
+          className={`${copyClasses} md:absolute opacity-0`}
           variants={opacity}
           animate={isActive ? 'open' : 'closed'}
         >

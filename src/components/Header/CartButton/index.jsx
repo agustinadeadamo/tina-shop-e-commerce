@@ -24,7 +24,7 @@ const CartButton = () => {
       <button
         type="button"
         onClick={toggleCart}
-        className="relative flex items-center text-gray-700"
+        className="relative flex items-center text-gray-700 text-sm"
         aria-label="Toggle cart"
         onKeyDown={handleKeyDown}
         tabIndex={0}

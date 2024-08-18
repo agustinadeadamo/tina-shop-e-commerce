@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StringAnimated from '../../../StringAnimated';
-import blur from './animationVariants';
+import { blur } from '../../animationVariants';
 
 const Nav = ({ links, selectedLink, setSelectedLink, onclickLink }) => {
   return (
