@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCart, removeItemFromCart } from '../../actions/cart';
@@ -8,6 +9,7 @@ import CartItem from './CartItem';
 import CartHeader from './CartHeader';
 import CartBanner from './CartBanner';
 import CartFooter from './CartFooter';
+import sidebarVariants from './animationVariants';
 import './style.scss';
 
 const CartSidebar = ({ isOpen, toggleCart }) => {
@@ -67,31 +69,41 @@ const CartSidebar = ({ isOpen, toggleCart }) => {
   const isCartEmpty = items.length === 0;
 
   return (
-    <div>
-      <CartHeader totalItems={totalItems} toggleCart={toggleCart} />
-      <CartBanner />
-      <div className="flex flex-col h-full overflow-hidden">
-        <div className="custom-scrollbar max-h-[calc(100vh-220px)] overflow-y-auto">
-          {error && <p className="text-center text-primary mt-4">{error}</p>}
-          {isCartEmpty ? (
-            <p className="text-center mt-4 text-gray-600">Your cart is empty</p>
-          ) : (
-            items.map((item) => (
-              <CartItem
-                disabledButtons={loading}
-                handleDecreaseQuantity={() => handleQuantityChange(item, -1)}
-                handleRemoveItem={() => handleRemoveItem(item)}
-                handleIncreaseQuantity={() => handleQuantityChange(item, 1)}
-                key={item.id}
-                item={item}
-              />
-            ))
-          )}
+    <motion.div
+      className="z-30 fixed right-0 top-0 h-full w-80 bg-white shadow-lg"
+      variants={sidebarVariants}
+      initial="closed"
+      animate="open"
+      exit="closed"
+    >
+      <div>
+        <CartHeader totalItems={totalItems} toggleCart={toggleCart} />
+        <CartBanner />
+        <div className="flex flex-col h-full overflow-hidden">
+          <div className="custom-scrollbar max-h-[calc(100vh-220px)] overflow-y-auto">
+            {error && <p className="text-center text-primary mt-4">{error}</p>}
+            {isCartEmpty ? (
+              <p className="text-center mt-4 text-gray-600">
+                Your cart is empty
+              </p>
+            ) : (
+              items.map((item) => (
+                <CartItem
+                  disabledButtons={loading}
+                  handleDecreaseQuantity={() => handleQuantityChange(item, -1)}
+                  handleRemoveItem={() => handleRemoveItem(item)}
+                  handleIncreaseQuantity={() => handleQuantityChange(item, 1)}
+                  key={item.id}
+                  item={item}
+                />
+              ))
+            )}
+          </div>
         </div>
-      </div>
 
-      <CartFooter subtotal={subtotal} loading={loading} />
-    </div>
+        <CartFooter subtotal={subtotal} loading={loading} />
+      </div>
+    </motion.div>
   );
 };
 
