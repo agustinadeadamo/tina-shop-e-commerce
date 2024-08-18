@@ -30,7 +30,7 @@ const DropdownMenu = ({ isOpen, items, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.ul
-          className="uppercase absolute mt-2 bg-white shadow-lg rounded-md w-48 z-10 border border-gray-200 right-0"
+          className="uppercase absolute mt-2 bg-white shadow-lg rounded-md w-48 z-10 border border-gray-200 left-0 md:right-0 md:left-auto"
           initial="hidden"
           animate="visible"
           exit="exit"
