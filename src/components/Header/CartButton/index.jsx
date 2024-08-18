@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { FaShoppingCart } from 'react-icons/fa';
-import CartSidebar from '../../Cart';
+import { CiShoppingCart } from 'react-icons/ci';
+import { AnimatePresence } from 'framer-motion';
+import Cart from '../../Cart';
+import Overlay from '../../Cart/Overlay';
 
 const CartButton = () => {
+  const totalQuantity = useSelector(({ cart }) => cart.totalQuantity);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
+    setIsCartOpen((prev) => !prev);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      toggleCart();
+    }
   };
 
   return (
@@ -16,21 +24,23 @@ const CartButton = () => {
       <button
         type="button"
         onClick={toggleCart}
-        className="relative text-gray-700 mr-4"
+        className="relative flex items-center text-gray-700"
         aria-label="Toggle cart"
-        data-testid="toggle-cart-button"
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
       >
-        <FaShoppingCart className="h-5 w-5" />
-        {totalQuantity > 0 && (
-          <span
-            className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-secondary rounded-full transform translate-x-1/2 -translate-y-1/2"
-            data-testid="cart-quantity-badge"
-          >
-            {totalQuantity}
-          </span>
-        )}
+        <CiShoppingCart className="text-2xl" />
+        <p className="hidden md:block">Cart({totalQuantity})</p>
       </button>
-      <CartSidebar isOpen={isCartOpen} toggleCart={toggleCart} />
+
+      <AnimatePresence>
+        {isCartOpen && (
+          <>
+            <Cart toggleCart={toggleCart} />
+            <Overlay toggleCart={toggleCart} handleKeyDown={handleKeyDown} />
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 };
