@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SecondaryButton = ({ children, onClick, type, disabled = false }) => {
-  const buttonClasses = `py-2 px-4 text-primary w-full transition-colors duration-300 text-sm
+  const buttonClasses = `py-2 px-4 text-primary w-full transition-colors duration-300 text-xs uppercase font-semibold
     ${
       disabled
         ? 'bg-neutral-300 text-primary cursor-not-allowed'
