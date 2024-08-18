@@ -8,7 +8,7 @@ const QuantitySelector = ({
   disabled = false,
 }) => {
   const buttonClass = `flex items-center justify-center w-6 h-6 border-2 border-black text-black focus:outline-none rounded-full transition-colors ${
-    disabled ? 'bg-gray-200 cursor-not-allowed' : 'hover:bg-gray-100'
+    disabled ? 'bg-neutral-300 cursor-not-allowed' : 'hover:bg-gray-100'
   }`;
   const buttonSpanClass = 'text-xl leading-none mb-[2px]';
 

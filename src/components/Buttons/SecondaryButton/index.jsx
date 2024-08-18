@@ -5,7 +5,7 @@ const SecondaryButton = ({ children, onClick, type, disabled = false }) => {
   const buttonClasses = `py-2 px-4 text-primary w-full transition-colors duration-300 text-sm
     ${
       disabled
-        ? 'bg-pink-100 text-primary cursor-not-allowed'
+        ? 'bg-neutral-300 text-primary cursor-not-allowed'
         : 'border-b-2 border-transparent underline'
     }
   `;
