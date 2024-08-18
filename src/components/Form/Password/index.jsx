@@ -34,14 +34,6 @@ const PasswordField = ({
             meta={meta}
             dataTestid="password-input"
           />
-          {meta.error && meta.touched && (
-            <p
-              className="text-red-500 text-xs mt-1"
-              data-testid="password-error"
-            >
-              {meta.error}
-            </p>
-          )}
         </div>
       )}
     </Field>

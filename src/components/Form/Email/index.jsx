@@ -35,14 +35,6 @@ const EmailField = ({
             meta={meta}
             dataTestid="email-input"
           />
-          {meta.error && meta.touched && (
-            <p
-              data-testid="email-error-message"
-              className="text-red-500 text-xs mt-1"
-            >
-              {meta.error}
-            </p>
-          )}
         </div>
       )}
     </Field>

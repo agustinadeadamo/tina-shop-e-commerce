@@ -5,8 +5,8 @@ const FieldInput = ({ id, type, placeholder, input, meta }) => {
   const inputClasses = `p-2 border ${
     meta.error && meta.touched
       ? 'border-red-500 focus:border-red-500'
-      : 'border-gray-300 focus:border-pink-500'
-  } rounded w-full outline-none focus:ring-2 focus:ring-pink-200`;
+      : 'border-gray-300 focus:border-black'
+  } rounded w-full outline-none focus:ring-2 focus:ring-black`;
 
   return (
     <div className="mb-4 w-full">
