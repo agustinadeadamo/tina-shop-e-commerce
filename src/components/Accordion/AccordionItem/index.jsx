@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import Icon from '../Icon';
-import contentVariants from './anim';
+import contentVariants from './animationVariants';
 
 const AccordionItem = ({ section, index, isOpen, onClick }) => {
   return (
