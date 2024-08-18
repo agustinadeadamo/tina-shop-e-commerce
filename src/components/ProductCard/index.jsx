@@ -1,38 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import RatingStars from '../RatingStars';
-import ActionsButtons from './ActionsButtons';
 import ProductImage from './ProductImage';
 import { useLazyLoad } from '../../hooks';
+import FavoriteButton from './FavoriteButton';
+import AddToCartButton from './AddToCartButton';
 
-/**
- * Component that displays product information.
- * @param {Object} product - Product data.
- * @param {Function} handleAddToCart - Function to handle adding the product to the cart.
- * @param {Function} handleViewMore - Function to handle viewing more details of the product.
- */
 const ProductCard = ({ product, handleAddToCart, handleViewMore }) => {
-  const { title, image, price, rating, id } = product;
+  const { title, image, price, id } = product;
   const [ref, isVisible] = useLazyLoad({ threshold: 0.1 });
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleClick = () => {
+    handleViewMore(id);
+  };
+
+  const toggleFavorite = () => {
+    setIsFavorite((prev) => !prev);
+  };
 
   if (!isVisible) {
-    return <div ref={ref} className="h-[300px] bg-gray-200" />; // Placeholder
+    return <div ref={ref} className="h-[400px] bg-gray-200" />;
   }
 
   return (
-    <div ref={ref} className="relative bg-white overflow-hidden group">
-      <div className="relative w-full pb-24 pt-24">
-        <ProductImage image={image} title={title} />
-        <ActionsButtons
-          id={id}
-          handleAddToCart={handleAddToCart}
-          handleViewMore={handleViewMore}
-        />
+    <div
+      onClick={handleClick}
+      ref={ref}
+      onKeyPress={handleClick}
+      role="button"
+      tabIndex={0}
+      className="relative bg-white overflow-hidden group border border-gray-200 h-[500px] flex items-center justify-center p-6"
+    >
+      <div className="relative w-[80%] h-full flex items-center justify-center overflow-hidden">
+        <div className="w-full h-[70%] flex items-center justify-center transition-transform duration-300 ease-in-out transform group-hover:translate-y-[-20%]">
+          <ProductImage
+            image={image}
+            title={title}
+            className="w-full h-full object-contain"
+          />
+        </div>
       </div>
-      <div className="p-4">
-        <h3 className="text-sm font-semibold">{title}</h3>
-        <RatingStars rate={rating.rate} />
-        <p className="text-gray-900 font-bold mt-2">${price}</p>
+      <FavoriteButton isFavorite={isFavorite} toggleFavorite={toggleFavorite} />
+      <div className="absolute bottom-0 left-0 right-0 bg-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+        <div className="text-center">
+          <h3 className="text-base uppercase text-xs font-semibold">{title}</h3>
+          <p className="text-gray-900 mt-2 text-lg font-light mt-8">€{price}</p>
+          <AddToCartButton handleAddToCart={handleAddToCart} />
+        </div>
       </div>
     </div>
   );
