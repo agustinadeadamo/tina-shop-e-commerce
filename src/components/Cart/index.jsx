@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCart, removeItemFromCart } from '../../actions/cart';
 import errorMesajes from '../../constants/errorMesajes';
-import { useDisabledScroll } from '../../hooks';
 import CartItem from './CartItem';
 import CartHeader from './CartHeader';
 import CartBanner from './CartBanner';
@@ -12,12 +11,11 @@ import CartFooter from './CartFooter';
 import sidebarVariants from './animationVariants';
 import './style.scss';
 
-const CartSidebar = ({ isOpen, toggleCart }) => {
+const CartSidebar = ({ toggleCart }) => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  useDisabledScroll(isOpen);
 
   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
   const subtotal = items.reduce(
@@ -108,7 +106,6 @@ const CartSidebar = ({ isOpen, toggleCart }) => {
 };
 
 CartSidebar.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
   toggleCart: PropTypes.func.isRequired,
 };
 

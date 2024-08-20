@@ -5,10 +5,12 @@ import CartButton from './CartButton';
 import AuthButton from './AuthButton';
 import MenuButton from './MenuButton';
 import { opacity, background } from './animationVariants';
+import { useDisabledScroll } from '../../hooks';
 import MenuPanel from './MenuPanel';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useDisabledScroll(isMenuOpen);
 
   const handleToggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
