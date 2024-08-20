@@ -35,7 +35,7 @@ This project is a fully functional e-commerce platform built with **React**, **T
 - **Redux:** State management tool for complex application state.
 - **React Testing Library:** Testing utility for React components, focusing on testing user interactions and behavior.
 - **Context API:** For handling simple, localized state.
-- **GSAP (GreenSock Animation Platform):** Used for creating smooth, high-performance animations to enhance user experience.
+- **Framer Motion** Utilized for creating smooth, high-performance animations and interactive elements, enhancing the overall user experience with advanced motion capabilities.
 - **ESLint:** For maintaining consistent code quality.
 - **Babel:** JavaScript compiler for backward compatibility.
 
