@@ -11,7 +11,7 @@ import opacity from './animationVariants';
  * @param {string[]} phrases - The list of phrases to display in rotation.
  * @param {function} onComplete - A callback function that gets called when all phrases have been displayed.
  */
-const RotatingText = ({ phrases, onComplete }) => {
+const RotatingText = ({ phrases, onComplete = () => {}, fontSize = '6xl' }) => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 
   const activePhrase = useMemo(
@@ -45,7 +45,7 @@ const RotatingText = ({ phrases, onComplete }) => {
 
   return (
     <motion.p
-      className="font-montserrat uppercase text-center text-6xl"
+      className={`font-montserrat uppercase text-center text-${fontSize}`}
       variants={opacity}
       initial="initial"
       animate="enter"
@@ -57,7 +57,8 @@ const RotatingText = ({ phrases, onComplete }) => {
 
 RotatingText.propTypes = {
   phrases: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onComplete: PropTypes.func.isRequired,
+  onComplete: PropTypes.func,
+  fontSize: PropTypes.string,
 };
 
 export default RotatingText;
