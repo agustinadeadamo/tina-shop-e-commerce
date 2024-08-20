@@ -18,20 +18,29 @@ const ProductCard = ({ product, handleAddToCart, handleViewMore }) => {
     setIsFavorite((prev) => !prev);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleViewMore(id);
+    }
+  };
+
   if (!isVisible) {
     return <div ref={ref} className="h-[400px] bg-gray-200" />;
   }
 
   return (
     <div
-      onClick={handleClick}
       ref={ref}
-      onKeyPress={handleClick}
-      role="button"
-      tabIndex={0}
       className="relative bg-white overflow-hidden group border border-gray-200 h-[500px] flex items-center justify-center p-6"
     >
-      <div className="relative w-[80%] h-full flex items-center justify-center overflow-hidden">
+      <div
+        onClick={handleClick}
+        role="button"
+        tabIndex={0}
+        aria-label={`See more details ${title}`}
+        onKeyDown={handleKeyDown}
+        className="relative w-[80%] h-full flex items-center justify-center overflow-hidden"
+      >
         <div className="w-full h-[70%] flex items-center justify-center transition-transform duration-300 ease-in-out transform group-hover:translate-y-[-20%]">
           <ProductImage
             image={image}
